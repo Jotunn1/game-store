@@ -1,4 +1,4 @@
-@import './reset.scss';
+@import './reset.scss', './--scss.scss', './fonts.scss';
 
 body {
     margin: 0;
@@ -12,4 +12,48 @@ body {
 code {
     font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
         monospace;
+}
+
+header {
+    padding: 20px 10px;
+    display: flex;
+    justify-content: space-between;
+
+    >div {
+        display: flex;
+        gap: 20px;
+    }
+}
+
+.icon-map {
+    width: 36px;
+    height: 36px;
+    fill: $white-color;
+
+    >use {
+        width: 100%;
+        display: grid;
+        place-items: center;
+    }
+}
+
+.button {
+    cursor: pointer;
+    display: flex;
+    justify-content: space-around;
+    gap: $button-gap;
+    align-items: center;
+
+    >h4 {
+        font-family: 'GT Bold';
+
+        &::first-letter {
+            text-transform: uppercase;
+        }
+    }
+
+    // paddi
+    &.ghost-btn {
+        background-color: transparent;
+    }
 }
