@@ -26,17 +26,13 @@ header {
     }
 }
 
-.icon-map {
+.icon {
     width: 36px;
     height: 36px;
-    fill: transparent;
-    stroke: $white-color;
-    stroke-width: 30px;
 
     >use {
         width: 100%;
-        display: grid;
-        place-items: center;
+        height: 100%;
     }
 }
 

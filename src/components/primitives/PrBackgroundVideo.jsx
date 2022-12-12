@@ -1,5 +1,3 @@
-// import bgVideo from '../../assets/videos/first-screen-video.mp4'
-
 const PrBackgroundVideo = () => {
     return (
         <video autoPlay loop muted className="bg-video">
@@ -8,4 +6,4 @@ const PrBackgroundVideo = () => {
     )
 }
 
-export default PrBackgroundVideo
+export default PrBackgroundVideo;
