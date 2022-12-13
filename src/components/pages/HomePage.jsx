@@ -1,4 +1,4 @@
-import PrButtonsRow from "../primitives/PrButtonsRow"
+import PrButtonsRow from "../ButtonsRow"
 import PrMainTitle from "../primitives/PrMainTitle"
 
 export const HomePage = () => {
