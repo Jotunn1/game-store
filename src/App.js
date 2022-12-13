@@ -1,4 +1,5 @@
 import { Header } from "./components/Header";
+import { HomePage } from "./components/pages/HomePage";
 import PrBackgroundVideo from "./components/primitives/PrBackgroundVideo";
 
 function App() {
@@ -6,6 +7,7 @@ function App() {
     <>
       <PrBackgroundVideo />
       <Header></Header>
+      <HomePage />
     </>
   );
 }
