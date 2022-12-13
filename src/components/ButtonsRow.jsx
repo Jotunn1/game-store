@@ -6,9 +6,9 @@ const ButtonsRow = () => {
     { icon: 'githublogo-dark', btnText: 'gitHub', outerLink: 'https://github.com/Jotunn1' },
     { icon: 'linkedin', btnText: 'linkedIn', outerLink: 'https://www.linkedin.com/in/ihor-bozhuk-aba4451a8/' }]
     return (
-        <div className="blured-bg btns-row">
+        <ul className="blured-bg btns-row">
             {btnsList.map((el, index) => el.outerLink ? <PrButtonCta key={index} icon={el.icon} btnText={el.btnText} link={el.outerLink} /> : <PrButtonCta key={index} icon={el.icon} btnText={el.btnText} />)}
-        </div>
+        </ul>
     )
 }
 

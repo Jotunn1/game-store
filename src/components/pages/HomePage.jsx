@@ -1,4 +1,5 @@
 import PrButtonsRow from "../ButtonsRow"
+import NavigationList from "../NavigationList"
 import PrMainTitle from "../primitives/PrMainTitle"
 
 export const HomePage = () => {
@@ -8,7 +9,9 @@ export const HomePage = () => {
                 <PrMainTitle />
                 <PrButtonsRow />
             </div>
-            <div></div>
+            <div>
+                <NavigationList />
+            </div>
         </div>
     )
 }

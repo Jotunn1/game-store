@@ -70,6 +70,7 @@ header {
         gap: 10px;
         padding: 12px 28px;
         transition: $transition-props .3s ease-in;
+        position: relative;
 
         &:hover {
             background-color: $cta-color;
@@ -89,7 +90,9 @@ header {
         }
 
         >a {
-            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
             width: 100%;
             height: 100%;
         }
@@ -118,8 +121,8 @@ header {
         width: 50vw;
 
         &:first-of-type {
-            margin-left: 30px;
-            min-width: 640px;
+            margin-left: 60px;
+            min-width: 650px;
         }
     }
 
@@ -140,6 +143,31 @@ header {
                 color: $cta-color;
                 cursor: pointer;
                 font-family: 'GT Medium';
+            }
+        }
+    }
+
+    .nav-list {
+        padding: 20px 40px;
+        align-self: flex-end;
+        margin-right: 50px;
+
+        >h2 {
+            font-family: "GT Bold";
+            font-size: 26px;
+            margin-bottom: 14px;
+            text-align: center;
+        }
+
+        >ul {
+            display: flex;
+            flex-direction: column;
+            grid-gap: 8px;
+
+            >* {
+                min-width: 180px;
+                justify-content: flex-start;
+                grid-gap: 20px;
             }
         }
     }
