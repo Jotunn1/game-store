@@ -114,19 +114,24 @@ header {
             color: $white-color;
             font-family: 'GT Regular';
             font-size: 22px;
-            transition: letter-spacing $base-time ease-in;
+            transition: letter-spacing $base-time cubic-bezier(0, -0.1, .99, -0.7);
+            // TODO fix transition curve for letter
         }
 
         .genre-icon {
             width: 40px;
+            display: grid;
+            place-items: center;
             aspect-ratio: 1/1;
             background-color: $grey-color;
             border-radius: 8px;
             transition: background-color $base-time ease-in;
 
             >svg {
-                height: 29px;
-                width: 29px;
+                height: 26px;
+                width: 26px;
+                transition: fill $base-time ease;
+                fill: $white-color;
             }
         }
 
@@ -137,7 +142,13 @@ header {
 
             .genre-icon {
                 background-color: $white-color;
+
+                >svg {
+                    fill: $black-color;
+                }
             }
+
+
         }
     }
 }
