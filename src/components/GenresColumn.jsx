@@ -1,4 +1,6 @@
 import { PrGenreBtn } from "./primitives/PrGenreBtn";
+//icons
+
 
 const GenresColumn = () => {
   const genresList = ['action', 'strategy', 'adventure', 'RPG', 'shooter', 'sport', 'puzzle', 'racing'];
