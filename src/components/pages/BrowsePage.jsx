@@ -6,10 +6,6 @@ import Games from "../Games";
 export const BrowsePage = () => {
   const [selectedGenre, setSelectedGenre] = useState('none');
 
-  useEffect(() => {
-    console.log(selectedGenre, 'from browse page')
-  }, [selectedGenre]);
-
   return (
     <div className="browse-page">
       <GenresColumn setSelectedGenre={setSelectedGenre} />
