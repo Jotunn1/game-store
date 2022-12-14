@@ -5,11 +5,11 @@ export const Header = () => {
     const navigate = useNavigate();
 
     const navigateTo = (path) => navigate(path)
-    
+
     return (
         <header>
             <div className="left-side">
-                <PrGhostBtn icon={'logo'} btnText={'game store'} navigateTo={() => navigateTo('home')} />
+                <PrGhostBtn icon={'logo'} btnText={'game store'} navigateTo={() => navigateTo('/')} />
                 <PrGhostBtn icon={'store'} btnText={'browse store'} navigateTo={() => navigateTo('browse')} />
             </div>
             <div className="right-side">

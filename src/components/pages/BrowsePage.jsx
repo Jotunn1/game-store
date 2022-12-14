@@ -1,7 +1,14 @@
+import GenresColumn from "../GenresColumn"
 
 
 export const BrowsePage = () => {
   return (
-    <div className="browse-page">BrowsePage</div>
+
+    <div className="browse-page">
+      <GenresColumn />
+      BrowsePage
+    </div>
+
+
   )
 }
