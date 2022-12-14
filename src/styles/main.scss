@@ -35,6 +35,42 @@ header {
         display: flex;
         gap: 40px;
     }
+
+    .search-bar {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        // justify-content: start;
+
+        input {
+            background-color: #262626;
+            border: 1px transparent;
+            border-radius: 8px;
+            color: #ccc;
+            font-family: 'GT Medium';
+            font-size: .92em;
+            height: 35px;
+            outline: none;
+            padding-left: 18px;
+            transition: all .3s;
+            width: 350px;
+        }
+
+        button {
+            svg {
+                // just hack before i find better solution
+                transform: scale(.525);
+                fill: $grey-color;
+                transition: fill $base-time ease-in;
+            }
+
+            &:hover {
+                svg {
+                    fill: $white-color;
+                }
+            }
+        }
+    }
 }
 
 .home-page,

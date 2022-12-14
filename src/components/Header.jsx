@@ -1,6 +1,7 @@
 import { PrGhostBtn } from "./primitives/PrGhostBtn";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useMemo, useState } from "react";
+import { SearchBar } from "./SearchBar";
 
 export const Header = () => {
     const navigate = useNavigate();
@@ -15,7 +16,7 @@ export const Header = () => {
             <div className="left-side">
                 <PrGhostBtn icon={'logo'} btnText={'game store'} navigateTo={() => navigateTo('/')} />
                 {isBrowsePage
-                    ? ''
+                    ? <SearchBar />
                     : <PrGhostBtn icon={'store'} btnText={'browse store'} navigateTo={() => navigateTo('browse')} />
                 }
             </div>
