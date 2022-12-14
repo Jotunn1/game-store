@@ -330,6 +330,19 @@ header {
             grid-gap: 20px;
         }
 
+        >ul {
+            >* {
+                opacity: 0;
+                animation: cardAppeareance calc($base-time * 3) ease-in-out forwards;
+            }
+
+            @for $i from 1 through 30 {
+                >:nth-child(#{$i}) {
+                    animation-delay: calc(0.1s * #{$i});
+                }
+            }
+        }
+
         h2 {
             font-size: 50px;
             font-family: 'GT Bold';
@@ -410,7 +423,6 @@ header {
             flex-direction: column;
             background-color: #202020;
             border-radius: 12px;
-            // cursor: pointer;
             $transition-props: background-color,
             transform;
             transition: $transition-props $base-time ease-in;
@@ -480,5 +492,17 @@ header {
                 grid-template-columns: repeat(3, 1fr);
             }
         }
+    }
+}
+
+@keyframes cardAppeareance {
+    0% {
+        opacity: 0;
+        transform: translateY(20%);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
     }
 }
