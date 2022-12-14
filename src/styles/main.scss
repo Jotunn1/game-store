@@ -24,6 +24,12 @@ header {
     top: 0;
     left: 0;
     right: 0;
+    transition: background-color $base-time;
+    z-index: 10;
+
+    &.bg {
+        background-color: $main-bg-color;
+    }
 
     >div {
         display: flex;
@@ -60,7 +66,6 @@ header {
     }
 
     &.ghost-btn {
-
         transition: transform .3s ease-in;
 
         &:hover {
@@ -149,6 +154,34 @@ header {
             }
 
 
+        }
+    }
+
+    &.cart-btn {
+        $cart-btn-color: rgb(153, 153, 153);
+
+        h4 {
+            font-size: 15px;
+            color: $cart-btn-color;
+            font-family: 'GT Light';
+            transition: color $base-time ease-out;
+        }
+
+        svg {
+            fill: $cart-btn-color;
+            width: 11px;
+            height: 11px;
+            transition: fill $base-time ease-out;
+        }
+
+        &:hover {
+            h4 {
+                color: $cta-color;
+            }
+
+            svg {
+                fill: $cta-color;
+            }
         }
     }
 }
@@ -258,13 +291,12 @@ header {
 
 .browse-page {
     width: 100%;
-    height: 100vh;
     background-color: $main-bg-color;
     display: grid;
-    grid-template-columns: 1fr 3fr;
+    grid-template-columns: 3fr 12fr;
 
     .genres-col {
-        padding: 20px 40px;
+        padding: 20px 25px;
 
         >h3 {
             font-family: 'GT Medium';
@@ -278,10 +310,70 @@ header {
             >:not(:first-child) {
                 margin-top: 12px;
             }
-
-
         }
     }
+
+    .games {
+        padding-right: 50px;
+
+        h2 {
+            font-size: 40px;
+            font-family: 'GT Bold';
+            margin-bottom: 30px;
+        }
+
+        >ul {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-gap: 30px;
+        }
+
+        .game-card {
+            display: flex;
+            flex-direction: column;
+            background-color: #202020;
+            border-radius: 12px;
+            // cursor: pointer;
+            $transition-props: background-color,
+            transform;
+            transition: $transition-props $base-time ease-in;
+
+            .game-price {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                margin: 15px;
+            }
+
+            h2 {
+                font-size: 24px;
+                font-family: 'GT Bold';
+                margin: 0 15px 50px 15px;
+            }
+
+            >.image-wrapper,
+            h2 {
+                cursor: pointer;
+            }
+
+            >.image-wrapper {
+                >img {
+                    border-top-left-radius: 12px;
+                    border-top-right-radius: 12px;
+                    max-width: 100%;
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+
+            &:hover {
+                background-color: #2d2d2d;
+                transform: scale(1.015);
+            }
+        }
+    }
+
+
 }
 
 @media screen and (max-width:1024px) {
@@ -301,6 +393,14 @@ header {
 
             >button {
                 justify-content: center;
+            }
+        }
+    }
+
+    .browse-page {
+        .games {
+            >ul {
+                grid-template-columns: repeat(3, 1fr);
             }
         }
     }

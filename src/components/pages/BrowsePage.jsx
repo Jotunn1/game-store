@@ -1,14 +1,19 @@
-import GenresColumn from "../GenresColumn"
+import { useEffect, useState } from "react"
+import GenresColumn from "../GenresColumn";
+import Games from "../Games";
 
 
 export const BrowsePage = () => {
+  const [selectedGenre, setSelectedGenre] = useState('none');
+
+  useEffect(() => {
+    console.log(selectedGenre, 'from browse page')
+  }, [selectedGenre]);
+
   return (
-
     <div className="browse-page">
-      <GenresColumn />
-      BrowsePage
+      <GenresColumn setSelectedGenre={setSelectedGenre} />
+      <Games selectedGenre={selectedGenre} />
     </div>
-
-
   )
 }
