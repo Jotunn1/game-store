@@ -74,7 +74,8 @@ header {
 }
 
 .home-page,
-.browse-page {
+.browse-page,
+.game-page {
     padding-top: var(--header-height);
 }
 
@@ -497,8 +498,30 @@ header {
             }
         }
     }
+}
 
+.game-page {
+    background-color: $main-bg-color;
 
+    .first-row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        >h1 {
+            font-family: 'GT Ultrabold';
+            font-size: 60px;
+            letter-spacing: 1.5px
+        }
+    }
+}
+
+.error-page {
+    width: 100vw;
+    height: 100vh;
+    background-color: rosybrown;
+    display: grid;
+    place-items: center;
 }
 
 @media screen and (max-width:1024px) {
@@ -524,7 +547,7 @@ header {
 
     .browse-page {
         .games {
-            >ul {
+            &.grid>ul {
                 grid-template-columns: repeat(3, 1fr);
             }
         }

@@ -1,6 +1,6 @@
 import { PrGhostBtn } from "./primitives/PrGhostBtn";
 import { useLocation, useNavigate } from "react-router-dom";
-import { useMemo, useState } from "react";
+import { useMemo } from "react";
 import { SearchBar } from "./SearchBar";
 
 export const Header = () => {
@@ -21,7 +21,7 @@ export const Header = () => {
                 }
             </div>
             <div className="right-side">
-                <PrGhostBtn icon={'githublogo'} btnText={'Jotunn1'} />
+                {/* <PrGhostBtn icon={'githublogo'} btnText={'Jotunn1'} /> */}
                 <PrGhostBtn icon={'browse'} btnText={'cart: 0 $'} />
             </div>
         </header>
