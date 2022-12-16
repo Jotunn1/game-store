@@ -8,9 +8,9 @@ import { ReactComponent as SportLogo } from '../assets/images/genres/sports.svg'
 import { ReactComponent as PuzzleLogo } from '../assets/images/genres/puzzle.svg';
 import { ReactComponent as RacingLogo } from '../assets/images/genres/racing.svg';
 import { ReactComponent as AdventureLogo } from '../assets/images/genres/adventure.svg';
+// import { useDispatch, useSelector } from "react-redux";
 
-const GenresColumn = ({ setSelectedGenre }) => {
-
+const GenresColumn = () => {
   const genresList = [{ name: 'action', icon: <ActionLogo /> },
   { name: 'strategy', icon: <StrategyLogo /> },
   { name: 'adventure', icon: <AdventureLogo /> },
@@ -24,7 +24,7 @@ const GenresColumn = ({ setSelectedGenre }) => {
     <div className="genres-col">
       <h3>Genres</h3>
       <ul>
-        {genresList.map((el, index) => <PrGenreBtn genreName={el.name} key={index} setSelectedGenre={() => setSelectedGenre(el.name)} >
+        {genresList.map((el, index) => <PrGenreBtn genreName={el.name} key={index} >
           {el.icon}
         </PrGenreBtn>)}
       </ul>

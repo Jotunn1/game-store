@@ -39,8 +39,7 @@ header {
     .search-bar {
         display: flex;
         align-items: center;
-        gap: 20px;
-        // justify-content: start;
+        gap: 5px;
 
         input {
             background-color: #262626;
@@ -372,7 +371,7 @@ header {
                 animation: cardAppeareance calc($base-time * 3) ease-in-out forwards;
             }
 
-            @for $i from 1 through 30 {
+            @for $i from 1 through 34 {
                 >:nth-child(#{$i}) {
                     animation-delay: calc(0.1s * #{$i});
                 }
@@ -524,7 +523,7 @@ header {
 
     .browse-page {
         .games {
-            >ul {
+            &.grid>ul {
                 grid-template-columns: repeat(3, 1fr);
             }
         }

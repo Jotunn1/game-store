@@ -21,7 +21,7 @@ export const Header = () => {
                 }
             </div>
             <div className="right-side">
-                <PrGhostBtn icon={'githublogo'} btnText={'Jotunn1'} />
+                {/* <PrGhostBtn icon={'githublogo'} btnText={'Jotunn1'} /> */}
                 <PrGhostBtn icon={'browse'} btnText={'cart: 0 $'} />
             </div>
         </header>
