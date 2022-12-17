@@ -3,7 +3,7 @@ import { actions } from "../../store/actions";
 import { ReactComponent as PlusLogo } from "../../assets/images/plus.svg";
 const AddToCartBtn = ({ gameId }) => {
     const dispatch = useDispatch();
-
+ 
     return (
         <button
             className="button cart-btn"

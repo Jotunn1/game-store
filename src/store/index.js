@@ -26,12 +26,15 @@ const reducer = (state, action) => {
                     ),
                 };
         case "ADD_TO_CART":
+            console.log(state);
             return {
                 ...state,
-                cart: action.payload.gameId,
+                cart: [
+                    ...state.cart,
+                    games.find((game) => game.id === action.payload.gameId),
+                ],
             };
         case "SET_SEARCH":
-            console.log(action);
             return {
                 ...state,
                 searchRequest: action.payload.searchRequest,

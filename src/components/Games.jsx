@@ -7,6 +7,8 @@ import GameCard from "./primitives/GameCard";
 const Games = () => {
     const [gamesLayout, setGamesLayout] = useState("grid");
     const gamesList = useSelector((state) => state.gamesList);
+    const cart = useSelector((state) => state.cart);
+    console.log(cart, "cart");
 
     return (
         <div className={"games " + gamesLayout}>
