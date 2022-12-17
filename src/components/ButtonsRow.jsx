@@ -7,7 +7,9 @@ const ButtonsRow = () => {
     { icon: 'linkedin', btnText: 'linkedIn', outerLink: 'https://www.linkedin.com/in/ihor-bozhuk-aba4451a8/' }]
     return (
         <ul className="blured-bg btns-row">
-            {btnsList.map((el, index) => el.outerLink ? <PrButtonCta key={index} icon={el.icon} btnText={el.btnText} link={el.outerLink} /> : <PrButtonCta key={index} icon={el.icon} btnText={el.btnText} />)}
+            {btnsList.map((el, index) => el.outerLink 
+            ? <PrButtonCta key={index} icon={el.icon} btnText={el.btnText} link={el.outerLink} /> 
+            : <PrButtonCta key={index} icon={el.icon} btnText={el.btnText} />)}
         </ul>
     )
 }

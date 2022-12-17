@@ -12,7 +12,7 @@ const GamePage = () => {
     return (
         <div className="game-page">
             <div className="first-row">
-                <NavLink to={'/browse'} push={true}>
+                <NavLink to={'/browse'}>
                     <PrGhostBtn icon={'arrow'} btnText='back to store' />
                 </NavLink>
                 <h1>{selectedGame.name}</h1>
