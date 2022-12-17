@@ -1,27 +1,17 @@
-import { useNavigate } from "react-router"
-import AddToCartBtn from "./AddToCartBtn"
+import AddToCartBtn from "./AddToCartBtn";
 
 const GameCard = ({ game }) => {
-    const navigate = useNavigate();
-    
-    const openGamePage = (gameId) => navigate(`games/${gameId}`);
-
     return (
-        // <Link to={`games/${game.id}`}>
-        <div className="game-card" onClick={() => openGamePage(game.id)} >
+        <div className="game-card" onClick={() => openGamePage(game.id)}>
             <div className="image-wrapper">
                 <img src={game.cover} alt={game.name} />
             </div>
             <div className="game-price">
-                <AddToCartBtn gameId={game.id} />
-                ${game.price}
+                <AddToCartBtn gameId={game.id} />${game.price}
             </div>
-            <h2>
-                {game.name}
-            </h2>
+            <h2>{game.name}</h2>
         </div>
-        // </Link>
-    )
-}
+    );
+};
 
-export default GameCard
+export default GameCard;

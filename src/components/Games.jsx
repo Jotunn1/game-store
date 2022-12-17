@@ -1,34 +1,29 @@
-import { useEffect, useState } from "react";
-import games from "../data/gamesData";
+import { useState } from "react";
+import { useSelector } from "react-redux";
 import { FilterControls } from "./FilterControls";
 import { GridControls } from "./GridControls";
 import GameCard from "./primitives/GameCard";
 
-const Games = ({ selectedGenre, setSelectedGenre }) => {
-    const [filteredGames, setFilteredGames] = useState(games);
-    const [gamesLayout, setGamesLayout] = useState('grid');
-
-    useEffect(() => {
-        if (selectedGenre !== 'none') {
-            const filteredArray = games.filter(game => game.genre === selectedGenre);
-            setFilteredGames(filteredArray)
-        }
-        else setFilteredGames(games)
-    }, [selectedGenre])
+const Games = () => {
+    const [gamesLayout, setGamesLayout] = useState("grid");
+    const gamesList = useSelector((state) => state.gamesList);
+    const cart = useSelector((state) => state.cart);
+    console.log(cart, "cart");
 
     return (
         <div className={"games " + gamesLayout}>
             <h2>Games</h2>
             <div className="controls-row">
-                <FilterControls selectedGenre={selectedGenre} setSelectedGenre={setSelectedGenre} />
+                <FilterControls />
                 <GridControls setGamesLayout={setGamesLayout} />
             </div>
             <ul>
-                {filteredGames.map(game => <GameCard game={game} key={game.id} />)}
+                {gamesList.map((game) => (
+                    <GameCard game={game} key={game.id} />
+                ))}
             </ul>
         </div>
+    );
+};
 
-    )
-}
-
-export default Games
+export default Games;
