@@ -1,18 +1,13 @@
 import AddToCartBtn from "./AddToCartBtn"
 
 const GameCard = ({ game }) => {
-
-    const addToCart = (gameId) => {
-        console.log(gameId)
-    }
-    
     return (
         <div className="game-card">
             <div className="image-wrapper">
                 <img src={game.cover} alt={game.name} />
             </div>
             <div className="game-price">
-                <AddToCartBtn addToCart={() => addToCart(game.name)} />
+                <AddToCartBtn gameId={game.id} />
                 ${game.price}
             </div>
             <h2>

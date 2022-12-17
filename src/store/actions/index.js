@@ -4,10 +4,19 @@ const selectGenre = (genreName) => {
             name: genreName
         }
     }
-    console.log(action, 'action');
+    return action
+}
+const addToCart = (gameId) => {
+    const action = {
+        type: "ADD_TO_CART", payload: {
+            gameId: gameId
+        }
+    }
     return action
 }
 
+
 export const actions = {
     selectGenre,
+    addToCart
 }
