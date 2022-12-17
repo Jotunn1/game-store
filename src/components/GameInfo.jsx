@@ -4,15 +4,16 @@ import GameColapseInfo from "./GameColapseInfo"
 export const GameInfo = ({ game }) => {
     return (
         <div className="game-info">
-            <div className="about">
-                <h3>About</h3>
-                <p>
-                    {game.desc}
-                </p>
+            <div>
+                <div className="about">
+                    <h3>About</h3>
+                    <p>
+                        {game.desc}
+                    </p>
+                </div>
+                <GameColapseInfo game={game} />
             </div>
-
-            <GameColapseInfo game={game} />
-            <GameButtons price={game.price} />
+            <GameButtons price={game.price} gameId={game.id} />
         </div>
     )
 }

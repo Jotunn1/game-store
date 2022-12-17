@@ -1,16 +1,10 @@
-import { useNavigate, useParams } from "react-router"
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router"
 import AddToCartBtn from "./AddToCartBtn"
 
 const GameCard = ({ game }) => {
-
     const navigate = useNavigate();
-
-    const openGamePage = (gameId) => navigate(`games/${gameId}`)
-
-    const addToCart = (gameId) => {
-        console.log(gameId)
-    }
+    
+    const openGamePage = (gameId) => navigate(`games/${gameId}`);
 
     return (
         // <Link to={`games/${game.id}`}>
@@ -19,7 +13,7 @@ const GameCard = ({ game }) => {
                 <img src={game.cover} alt={game.name} />
             </div>
             <div className="game-price">
-                <AddToCartBtn addToCart={() => addToCart(game.id)} />
+                <AddToCartBtn gameId={game.id} />
                 ${game.price}
             </div>
             <h2>

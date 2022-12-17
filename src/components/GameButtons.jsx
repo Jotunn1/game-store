@@ -1,11 +1,11 @@
 import AddToCartBtn from "./primitives/AddToCartBtn"
 
-export const GameButtons = ({ price }) => {
+export const GameButtons = ({ price, gameId }) => {
     return (
         <div className="game-buttons">
             <h6>$ {price}</h6>
             <div>heart</div>
-            <AddToCartBtn />
+            <AddToCartBtn gameId={gameId} />
         </div>
     )
 }
