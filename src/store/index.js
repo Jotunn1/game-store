@@ -11,24 +11,32 @@ const initialState = {
 const reducer = (state, action) => {
     switch (action.type) {
         case "SELECT_GENRE":
-            return {
-                ...state,
-                selectedGenre: action.payload.name,
-                gamesList: games.filter(
-                    (game) => game.genre === action.payload.name
-                ),
-            };
+            if (action.payload.name === "none")
+                return {
+                    ...state,
+                    selectedGenre: action.payload.name,
+                    gamesList: games,
+                };
+            else
+                return {
+                    ...state,
+                    selectedGenre: action.payload.name,
+                    gamesList: games.filter(
+                        (game) => game.genre === action.payload.name
+                    ),
+                };
         case "ADD_TO_CART":
             return {
                 ...state,
                 cart: action.payload.gameId,
             };
         case "SET_SEARCH":
+            console.log(action);
             return {
                 ...state,
-                searchRequest: action.payload,
+                searchRequest: action.payload.searchRequest,
                 gamesList: games.filter((game) =>
-                    game.name.includes(this.searchRequest)
+                    game.name.includes(action.payload.searchRequest)
                 ),
             };
         default:

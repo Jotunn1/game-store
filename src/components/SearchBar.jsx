@@ -1,6 +1,7 @@
-import { useEffect, useRef, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useRef } from "react";
+import { useDispatch } from "react-redux";
 import { ReactComponent as SearchLogo } from "../assets/images/search.svg";
+import { actions } from "../store/actions";
 
 export const SearchBar = () => {
     // const searchRequest = useSelector(state => state.searchRequest);
@@ -14,10 +15,7 @@ export const SearchBar = () => {
             <button
                 className="button"
                 onClick={() =>
-                    dispatch({
-                        type: "SET_SEARCH",
-                        payload: inputRef.current.value,
-                    })
+                    dispatch(actions.setSearchRequest(inputRef.current.value))
                 }
             >
                 <SearchLogo />

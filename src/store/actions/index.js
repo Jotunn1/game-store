@@ -16,8 +16,18 @@ const addToCart = (gameId) => {
     };
     return action;
 };
+const setSearchRequest = (searchRequest) => {
+    const action = {
+        type: "SET_SEARCH",
+        payload: {
+            searchRequest: searchRequest,
+        },
+    };
+    return action;
+};
 
 export const actions = {
     selectGenre,
     addToCart,
+    setSearchRequest,
 };
