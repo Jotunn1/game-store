@@ -1,4 +1,4 @@
-import { PrIcon } from "./PrIcon"
+import { PrIcon } from "./PrIcon";
 
 export const PrGhostBtn = ({ icon, btnText, navigateTo }) => {
     return (
@@ -6,5 +6,5 @@ export const PrGhostBtn = ({ icon, btnText, navigateTo }) => {
             <PrIcon iconName={icon} />
             <h3>{btnText}</h3>
         </button>
-    )
-}
+    );
+};

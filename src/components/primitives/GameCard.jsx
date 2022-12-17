@@ -1,4 +1,4 @@
-import AddToCartBtn from "./AddToCartBtn"
+import AddToCartBtn from "./AddToCartBtn";
 
 const GameCard = ({ game }) => {
     return (
@@ -7,14 +7,11 @@ const GameCard = ({ game }) => {
                 <img src={game.cover} alt={game.name} />
             </div>
             <div className="game-price">
-                <AddToCartBtn gameId={game.id} />
-                ${game.price}
+                <AddToCartBtn gameId={game.id} />${game.price}
             </div>
-            <h2>
-                {game.name}
-            </h2>
+            <h2>{game.name}</h2>
         </div>
-    )
-}
+    );
+};
 
-export default GameCard
+export default GameCard;

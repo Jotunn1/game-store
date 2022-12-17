@@ -6,6 +6,10 @@ export const PrIcon = ({ iconName }) => {
         // <svg className="icon">
         //     <use href={`../../assets/images/${iconName}.svg`}></use>
         // </svg>
-        <img className={`icon ${iconName}`} src={currentIcon} alt={iconName + ' icon'} />
-    )
-}
+        <img
+            className={`icon ${iconName}`}
+            src={currentIcon}
+            alt={iconName + " icon"}
+        />
+    );
+};

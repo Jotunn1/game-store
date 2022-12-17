@@ -10,29 +10,31 @@ import { ReactComponent as RacingLogo } from "../assets/images/genres/racing.svg
 import { ReactComponent as AdventureLogo } from "../assets/images/genres/adventure.svg";
 
 const GenresColumn = () => {
-  const genresList = [
-    { name: "action", icon: <ActionLogo /> },
-    { name: "strategy", icon: <StrategyLogo /> },
-    { name: "adventure", icon: <AdventureLogo /> },
-    { name: "RPG", icon: <RPGLogo /> },
-    { name: "shooter", icon: <ShooterLogo /> },
-    { name: "sport", icon: <SportLogo /> },
-    { name: "puzzle", icon: <PuzzleLogo /> },
-    { name: "racing", icon: <RacingLogo /> },
-  ];
+    const genresList = [
+        { name: "action", icon: <ActionLogo /> },
+        { name: "strategy", icon: <StrategyLogo /> },
+        { name: "adventure", icon: <AdventureLogo /> },
+        { name: "RPG", icon: <RPGLogo /> },
+        { name: "shooter", icon: <ShooterLogo /> },
+        { name: "sport", icon: <SportLogo /> },
+        { name: "puzzle", icon: <PuzzleLogo /> },
+        { name: "racing", icon: <RacingLogo /> },
+    ];
 
-  return (
-    <div className="genres-col">
-      <h3>Genres</h3>
-      <ul>
-        {genresList.map((el, index) => (
-          <PrGenreBtn genreName={el.name} key={index} icon={el.icon}>
-            {/* {el.icon} */}
-          </PrGenreBtn>
-        ))}
-      </ul>
-    </div>
-  );
+    return (
+        <div className="genres-col">
+            <h3>Genres</h3>
+            <ul>
+                {genresList.map((el, index) => (
+                    <PrGenreBtn
+                        genreName={el.name}
+                        key={index}
+                        icon={el.icon}
+                    ></PrGenreBtn>
+                ))}
+            </ul>
+        </div>
+    );
 };
 
 export default GenresColumn;
