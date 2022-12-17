@@ -1,7 +1,7 @@
-import PrButtonsRow from "../ButtonsRow"
-import NavigationList from "../NavigationList"
+import PrButtonsRow from "../ButtonsRow";
+import NavigationList from "../NavigationList";
 import PrMainTitle from "../primitives/PrMainTitle";
-import PrBackgroundVideo from '../primitives/PrBackgroundVideo'
+import PrBackgroundVideo from "../primitives/PrBackgroundVideo";
 
 export const HomePage = () => {
     return (
@@ -17,6 +17,5 @@ export const HomePage = () => {
                 </div>
             </div>
         </>
-
-    )
-}
+    );
+};

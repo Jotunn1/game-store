@@ -1,21 +1,27 @@
-import { useRef, useState } from 'react';
-import { ReactComponent as SearchLogo } from '../assets/images/search.svg';
+import { useEffect, useRef, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { ReactComponent as SearchLogo } from "../assets/images/search.svg";
 
-export const SearchBar = ({ setSearch }) => {
-    const [searchRequest, setSearchRequest] = useState('');
+export const SearchBar = () => {
+    // const searchRequest = useSelector(state => state.searchRequest);
+
     const inputRef = useRef(null);
-
-    const searchClick = () => {
-        setSearchRequest(inputRef.current.value);
-        console.log(searchRequest, 'searchRequest')
-    }
+    const dispatch = useDispatch();
 
     return (
-        <div className='search-bar'>
-            <input ref={inputRef} type="text" placeholder='Search games...' />
-            <button className='button' onClick={searchClick}>
+        <div className="search-bar">
+            <input ref={inputRef} type="text" placeholder="Search games..." />
+            <button
+                className="button"
+                onClick={() =>
+                    dispatch({
+                        type: "SET_SEARCH",
+                        payload: inputRef.current.value,
+                    })
+                }
+            >
                 <SearchLogo />
             </button>
         </div>
-    )
-}
+    );
+};
