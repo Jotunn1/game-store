@@ -502,6 +502,7 @@ header {
 
 .game-page {
     background-color: $main-bg-color;
+    min-height: 100vh;
 
     .first-row {
         display: flex;
@@ -512,6 +513,45 @@ header {
             font-family: 'GT Ultrabold';
             font-size: 60px;
             letter-spacing: 1.5px
+        }
+    }
+
+    .game-content {
+        display: grid;
+        grid-template-columns: 5fr 2fr;
+
+        .game-info {
+            padding: 40px 25px;
+
+            >h3 {
+                font-family: 'GT Ultrabold';
+                font-size: 26px;
+                margin-bottom: 20px;
+            }
+
+            >p {
+                color: #ccc;
+                font-family: 'GT Regular';
+                font-size: 14px;
+                line-height: 1.65;
+                word-spacing: 2px;
+            }
+
+        }
+
+        .game-buttons {
+            margin-top: 10px;
+            align-items: center;
+            background: #1a1a1a;
+            border-radius: 15px;
+            display: flex;
+            justify-content: space-between;
+            padding: 20px 30px;
+
+            >h6 {
+                font-family: 'GT Light';
+                font-size: 20px;
+            }
         }
     }
 }
