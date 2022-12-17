@@ -219,6 +219,17 @@ header {
                 fill: $cta-color;
             }
         }
+
+        &.added {
+            h4 {
+                color: $succes-color ;
+            }
+
+            svg {
+                fill: $succes-color;
+            }
+
+        }
     }
 }
 

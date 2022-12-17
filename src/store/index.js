@@ -26,14 +26,17 @@ const reducer = (state, action) => {
                     ),
                 };
         case "ADD_TO_CART":
-            console.log(state);
-            return {
-                ...state,
-                cart: [
-                    ...state.cart,
-                    games.find((game) => game.id === action.payload.gameId),
-                ],
-            };
+            if (state.cart.find((el) => el.id === action.payload.gameId)) {
+                return { ...state };
+            } else {
+                return {
+                    ...state,
+                    cart: [
+                        ...state.cart,
+                        games.find((game) => game.id === action.payload.gameId),
+                    ],
+                };
+            }
         case "SET_SEARCH":
             return {
                 ...state,
