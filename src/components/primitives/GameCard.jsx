@@ -1,6 +1,10 @@
+import { useNavigate } from "react-router";
 import AddToCartBtn from "./AddToCartBtn";
 
 const GameCard = ({ game }) => {
+    const navigate = useNavigate();
+
+    const openGamePage = (gameId) => navigate(`/games/${gameId}`);
     return (
         <div className="game-card" onClick={() => openGamePage(game.id)}>
             <div className="image-wrapper">

@@ -1,9 +1,17 @@
+import { useSelector } from "react-redux";
 import PrButtonCta from "./primitives/PrButtonCta";
 
 const ButtonsRow = () => {
+    const games = useSelector((state) => state.gamesList);
+
+    const randomGameId = Math.floor(Math.random() * games.length);
     const btnsList = [
-        { icon: "enter", btnText: "start" },
-        { icon: "dice", btnText: "drop dice" },
+        { icon: "enter", btnText: "start", innerLink: "/browse" },
+        {
+            icon: "dice",
+            btnText: "drop dice",
+            innerLink: `/games/${randomGameId}`,
+        },
         {
             icon: "githublogo-dark",
             btnText: "gitHub",
@@ -23,13 +31,14 @@ const ButtonsRow = () => {
                         key={index}
                         icon={el.icon}
                         btnText={el.btnText}
-                        link={el.outerLink}
+                        outerLink={el.outerLink}
                     />
                 ) : (
                     <PrButtonCta
                         key={index}
                         icon={el.icon}
                         btnText={el.btnText}
+                        innerLink={el.innerLink}
                     />
                 )
             )}

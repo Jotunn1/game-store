@@ -2,8 +2,8 @@ import PrButtonCta from "./primitives/PrButtonCta";
 
 const NavigationList = () => {
     const navList = [
-        { icon: "game", btnText: "game page" },
-        { icon: "404", btnText: "404 page" },
+        { icon: "game", btnText: "game page", innerLink: "/browse" },
+        { icon: "404", btnText: "404 page", innerLink: "*" },
         { icon: "placeholder", btnText: "placeholder" },
         {
             icon: "git",
@@ -37,13 +37,14 @@ const NavigationList = () => {
                             key={index}
                             icon={el.icon}
                             btnText={el.btnText}
-                            link={el.outerLink}
+                            outerLink={el.outerLink}
                         />
                     ) : (
                         <PrButtonCta
                             key={index}
                             icon={el.icon}
                             btnText={el.btnText}
+                            innerLink={el.innerLink}
                         />
                     )
                 )}
