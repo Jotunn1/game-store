@@ -520,15 +520,19 @@ header {
     .game-content {
         display: grid;
         grid-template-columns: 5fr 2fr;
+        height: 100%;
 
         .game-info {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            justify-content: space-between;
 
             >.about {
                 padding: 40px 25px 10px 25px;
                 background-color: #1a1a1a;
                 border-top-left-radius: 16px;
                 border-top-right-radius: 16px;
-
 
                 >h3 {
                     font-family: 'GT Ultrabold';
@@ -565,14 +569,18 @@ header {
         }
 
         .collapsed-info {
+            overflow: hidden;
+            padding: 20px 25px;
+            background-color: #262626;
+            border-bottom-left-radius: 16px;
+            border-bottom-right-radius: 16px;
+            display: flex;
+            flex-direction: column-reverse;
+
             .blurred-row {
                 display: flex;
-                justify-content: end;
+                justify-content: flex-end;
                 align-items: center;
-                padding: 10px;
-                background-color: #262626;
-                border-bottom-left-radius: 16px;
-                border-bottom-right-radius: 16px;
 
                 >p,
                 img {
@@ -599,11 +607,15 @@ header {
                 display: flex;
                 flex-direction: column;
                 gap: 10px;
-                margin-top: 20px;
+                $transition-props: margin,
+                height;
+                transition: $transition-props 1s ease-in;
 
                 >a {
                     font-family: "GT Bold";
-                    transition: color $base-time;
+                    $transition-props: color,
+                    opacity;
+                    transition: $transition-props $base-time ;
 
                     &::first-letter {
                         text-transform: uppercase;
@@ -620,6 +632,52 @@ header {
                     font-size: 15px;
                     letter-spacing: 1px;
                     line-height: 1.2;
+                    transition: opacity calc($base-time * 2);
+                }
+            }
+
+            &.active {
+                >ul {
+                    margin: 20px 0;
+                    height: 174px;
+
+                    >li,
+                    a {
+                        opacity: 1;
+                    }
+
+                    >li {
+                        @for $i from 1 through 5 {
+                            &:nth-of-type(#{$i}) {
+                                transition-delay: calc(0.15s * #{$i});
+                            }
+                        }
+                    }
+                }
+            }
+
+            &.hide {
+                >ul {
+                    pointer-events: none;
+                    margin: 0;
+                    height: 0;
+
+                    >li,
+                    a {
+                        opacity: 0;
+                    }
+
+                    >a {
+                        transition-delay: 0.75s;
+                    }
+
+                    >li {
+                        @for $i from 1 through 5 {
+                            &:nth-of-type(#{$i}) {
+                                transition-delay: calc(0.6s / #{$i});
+                            }
+                        }
+                    }
                 }
             }
         }

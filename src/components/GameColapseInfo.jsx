@@ -1,16 +1,20 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 
 const GameColapseInfo = ({ game }) => {
-    const [isColapsed, setIsColapsed] = useState(false);
+    const [isColapsed, setIsColapsed] = useState(true);
+    const collapsedList = useRef(null);
+
     return (
-        <div className="collapsed-info">
+        <div className={`collapsed-info ${isColapsed ? 'hide' : 'active'} `}>
             <div className="blurred-row" onClick={() => setIsColapsed(!isColapsed)}>
                 <p>
                     {isColapsed ? "Show more" : "Hide"}
                 </p>
-                <img className={isColapsed ? 'rotate' : ''} src={require('../assets/images/arrow-down.png')} alt="arrow-down" />
+                <img className={isColapsed ? '' : 'rotate'} src={require('../assets/images/arrow-down.png')} alt="arrow-down" />
             </div>
-            <ul>
+            <ul ref={collapsedList}
+            // style={{ "--list-height": collapseListHeight }}
+            >
                 <a href={game.link}>
                     {game.surname} Website
                 </a>
