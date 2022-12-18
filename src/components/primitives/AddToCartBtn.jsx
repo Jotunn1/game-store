@@ -1,8 +1,9 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { actions } from "../../store/actions";
 import { ReactComponent as PlusIcon } from "../../assets/images/plus.svg";
 import { ReactComponent as AddedIcon } from "../../assets/images/added.svg";
+
 const AddToCartBtn = ({ gameId }) => {
     const dispatch = useDispatch();
     const [isInCart, setIsInCart] = useState(false);

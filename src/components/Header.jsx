@@ -2,6 +2,7 @@ import { PrGhostBtn } from "./primitives/PrGhostBtn";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useMemo } from "react";
 import { SearchBar } from "./SearchBar";
+import CartButton from "./primitives/CartButton";
 
 export const Header = () => {
     const navigate = useNavigate();
@@ -32,7 +33,8 @@ export const Header = () => {
                 )}
             </div>
             <div className="right-side">
-                <PrGhostBtn icon={"browse"} btnText={"cart: 0 $"} />
+                <CartButton />
+                {/* <PrGhostBtn icon={"cart"} btnText={"cart: 0 $"} /> */}
             </div>
         </header>
     );
