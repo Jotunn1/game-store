@@ -20,7 +20,7 @@ const AddToCartBtn = ({ gameId }) => {
         >
             {isInCart ? (
                 <>
-                    <h4>Added to Cart</h4>
+                    <h4>Added</h4>
                     <AddedIcon />
                 </>
             ) : (

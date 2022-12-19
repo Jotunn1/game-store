@@ -7,6 +7,7 @@ const selectGenre = (genreName) => {
     };
     return action;
 };
+
 const addToCart = (gameId) => {
     const action = {
         type: "ADD_TO_CART",
@@ -16,6 +17,24 @@ const addToCart = (gameId) => {
     };
     return action;
 };
+
+const deleteFromCart = (gameId) => {
+    const action = {
+        type: "DELETE_FROM_CART",
+        payload: {
+            gameId: gameId,
+        },
+    };
+    return action;
+};
+
+const clearCart = () => {
+    const action = {
+        type: "CLEAR_CART",
+    };
+    return action;
+};
+
 const setSearchRequest = (searchRequest) => {
     const action = {
         type: "SET_SEARCH",
@@ -29,5 +48,7 @@ const setSearchRequest = (searchRequest) => {
 export const actions = {
     selectGenre,
     addToCart,
+    deleteFromCart,
+    clearCart,
     setSearchRequest,
 };

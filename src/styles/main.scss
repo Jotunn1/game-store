@@ -727,14 +727,37 @@ header {
     top: 0;
     right: 0;
     height: 100vh;
-    width: 30vw;
+    width: 22%;
     background-color: rgb(26, 26, 26);
     transition: transform 0.6s ease-out;
     z-index: 15;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    padding: 40px;
+    padding: 25px;
+
+    .button {
+        color: $grey-color;
+        $transition-props: transform,
+        color;
+        transition: $transition-props $base-time ease-out;
+
+        &:hover {
+            color: $white-color;
+            transform: scale(1.03);
+        }
+    }
+
+    .title {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        button {
+            font-size: 14px;
+            font-family: "GT Light";
+        }
+    }
 
     h2 {
         font-family: 'GT Ultrabold';
@@ -748,9 +771,12 @@ header {
         gap: 10px;
     }
 
-    button {
-        color: red;
-        font-size: 40px;
+    button:not(.delete-btn) {
+        display: flex;
+        justify-content: center;
+        border-radius: 15px;
+        font-family: "GT Bold";
+        font-size: 20px;
     }
 
     &.active {
@@ -767,12 +793,18 @@ header {
         border-radius: 10px;
         display: flex;
         justify-content: space-between;
-        padding: 20px;
+        padding: 20px 10px;
 
         >div {
             display: flex;
             justify-content: space-between;
+            align-items: center;
             width: 100%;
+            margin-right: 5px;
+
+            h6 {
+                max-width: 120px;
+            }
         }
 
         .delete-btn {

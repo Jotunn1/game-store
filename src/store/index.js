@@ -37,6 +37,20 @@ const reducer = (state, action) => {
                     ],
                 };
             }
+        case "DELETE_FROM_CART":
+            return {
+                ...state,
+                cart: state.cart.filter(
+                    (el) => el.id !== action.payload.gameId
+                ),
+            };
+        case "CLEAR_CART": {
+            console.log(action);
+            return {
+                ...state,
+                cart: [],
+            };
+        }
         case "SET_SEARCH":
             return {
                 ...state,

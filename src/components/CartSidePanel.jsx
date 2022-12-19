@@ -1,14 +1,17 @@
-import { useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import PrCartListItem from "./primitives/PrCartListItem";
+import { actions } from "../store/actions";
 
-export const CartSidePanel = () => {
-    const [isOpen, setIsOpen] = useState(true);
+export const CartSidePanel = ({ isCartPanelActive, setIsCartPanelActive }) => {
     const cart = useSelector((state) => state.cart);
+    const dispatch = useDispatch();
 
-    const closeCartPanel = () => setIsOpen(false);
     return (
-        <div className={"cart-panel " + (isOpen ? "active" : "closed")}>
+        <div
+            className={
+                "cart-panel " + (isCartPanelActive ? "active" : "closed")
+            }
+        >
             <div>
                 {cart.length > 0 ? (
                     cart.length === 1 ? (
@@ -27,7 +30,18 @@ export const CartSidePanel = () => {
                         </>
                     ) : (
                         <>
-                            <h2>{cart.length} Games</h2>
+                            <div className="title">
+                                <h2>{cart.length} Games</h2>
+                                <button
+                                    className="button clear-cart"
+                                    onClick={() =>
+                                        dispatch(actions.clearCart())
+                                    }
+                                >
+                                    Clear
+                                </button>
+                            </div>
+
                             <ul>
                                 {cart.map((el) => (
                                     <PrCartListItem
@@ -45,7 +59,10 @@ export const CartSidePanel = () => {
                 )}
             </div>
 
-            <button className="button close-panel" onClick={closeCartPanel}>
+            <button
+                className="button close-panel"
+                onClick={() => setIsCartPanelActive(false)}
+            >
                 Close Panel
             </button>
         </div>
