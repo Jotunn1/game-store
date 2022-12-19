@@ -59,7 +59,7 @@ header {
             svg {
                 // just hack before i find better solution
                 transform: scale(.525);
-                fill: $grey-color;
+                fill: $gray-color;
                 transition: fill $base-time ease-in;
             }
 
@@ -164,7 +164,7 @@ header {
             display: grid;
             place-items: center;
             aspect-ratio: 1/1;
-            background-color: $grey-color;
+            background-color: $gray-color;
             border-radius: 8px;
             transition: background-color $base-time ease-in;
 
@@ -402,7 +402,7 @@ header {
             justify-content: space-between;
 
             button {
-                background-color: $grey-color;
+                background-color: $gray-color;
                 border-radius: 10px;
                 color: #fff;
                 cursor: pointer;
@@ -722,12 +722,45 @@ header {
     place-items: center;
 }
 
+.cart-bg {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    height: 100vh;
+    transition: background-color $base-time;
+
+    .outside-cart {
+        width: 75%;
+        height: 100%;
+    }
+
+    &.active {
+        .cart-panel {
+
+            transform: translateX(0);
+        }
+    }
+
+    &.closed {
+        pointer-events: none;
+        background: transparent;
+
+        .cart-panel {
+            transform: translateX(100%);
+        }
+
+    }
+}
+
 .cart-panel {
     position: fixed;
     top: 0;
     right: 0;
-    height: 100vh;
-    width: 22%;
+    height: 100%;
+    width: 25%;
     background-color: rgb(26, 26, 26);
     transition: transform 0.6s ease-out;
     z-index: 15;
@@ -737,14 +770,22 @@ header {
     padding: 25px;
 
     .button {
-        color: $grey-color;
-        $transition-props: transform,
-        color;
-        transition: $transition-props $base-time ease-out;
+        &:not(.delete-btn) {
+            color: $gray-color-2;
+            $transition-props: transform,
+            color;
+            transition: $transition-props $base-time ease-out;
 
-        &:hover {
-            color: $white-color;
-            transform: scale(1.03);
+            &:hover {
+                color: $white-color;
+                transform: scale(1.03);
+            }
+        }
+
+        &.close-panel {
+            justify-content: center;
+            font-family: "GT Bold";
+            font-size: 20px;
         }
     }
 
@@ -754,7 +795,8 @@ header {
         justify-content: space-between;
 
         button {
-            font-size: 14px;
+            letter-spacing: 1.2px;
+            font-size: 15px;
             font-family: "GT Light";
         }
     }
@@ -771,22 +813,6 @@ header {
         gap: 10px;
     }
 
-    button:not(.delete-btn) {
-        display: flex;
-        justify-content: center;
-        border-radius: 15px;
-        font-family: "GT Bold";
-        font-size: 20px;
-    }
-
-    &.active {
-        transform: translateX(0);
-    }
-
-    &.closed {
-        transform: translateX(100%);
-    }
-
     .cart-item {
         align-items: center;
         background-color: #262626;
@@ -800,10 +826,20 @@ header {
             justify-content: space-between;
             align-items: center;
             width: 100%;
-            margin-right: 5px;
+            margin-right: 10px;
 
             h6 {
-                max-width: 120px;
+                max-width: 140px;
+                font-family: 'GT Regular';
+                font-size: 18px;
+                color: $gray-color-2;
+                padding: 4px 0 3px;
+            }
+
+            p {
+                color: #999;
+                font-family: 'GT Medium';
+                font-size: 13px;
             }
         }
 
@@ -817,7 +853,7 @@ header {
 
             >svg {
                 width: 40%;
-                aspect-ratio: 1/1;
+                height: 40%;
                 fill: $white-color;
             }
 

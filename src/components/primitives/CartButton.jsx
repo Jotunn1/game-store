@@ -4,7 +4,7 @@ import { CartSidePanel } from "../CartSidePanel";
 import { PrGhostBtn } from "./PrGhostBtn";
 
 const CartButton = () => {
-    const [isCartPanelActive, setIsCartPanelActive] = useState(true);
+    const [isCartPanelActive, setIsCartPanelActive] = useState(false);
     const cart = useSelector((state) => state.cart);
     const cartTotal = useMemo(() => {
         return cart.reduce((acc, el) => acc + Number(el.price), 0);

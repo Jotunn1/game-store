@@ -7,12 +7,14 @@ const DeleteFromCart = ({ gameId }) => {
         console.log(gameId);
     };
     return (
-        <button
-            className="button delete-btn"
-            onClick={() => dispatch(actions.deleteFromCart(gameId))}
-        >
-            <CrossIcon />
-        </button>
+        <span>
+            <button
+                className="button delete-btn"
+                onClick={() => dispatch(actions.deleteFromCart(gameId))}
+            >
+                <CrossIcon />
+            </button>
+        </span>
     );
 };
 
