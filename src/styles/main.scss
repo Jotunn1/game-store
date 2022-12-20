@@ -862,6 +862,23 @@ header {
     }
 }
 
+.search-placeholder {
+    display: grid;
+    place-items: center;
+    height: 50%;
+
+    h5 {
+        font-family: "GT Bold";
+        font-size: 50px;
+        max-width: 500px;
+        text-align: center;
+
+        span {
+            color: $gray-color-2;
+        }
+    }
+}
+
 @media screen and (max-width:1024px) {
     .home-page {
         >div {

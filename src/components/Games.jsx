@@ -7,7 +7,7 @@ import GameCard from "./primitives/GameCard";
 const Games = () => {
     const [gamesLayout, setGamesLayout] = useState("grid");
     const gamesList = useSelector((state) => state.gamesList);
-    const cart = useSelector((state) => state.cart);
+    const searchRequest = useSelector((state) => state.searchRequest);
 
     return (
         <div className={"games " + gamesLayout}>
@@ -16,11 +16,21 @@ const Games = () => {
                 <FilterControls />
                 <GridControls setGamesLayout={setGamesLayout} />
             </div>
-            <ul>
-                {gamesList.map((game) => (
-                    <GameCard game={game} key={game.id} />
-                ))}
-            </ul>
+
+            {gamesList.length > 0 ? (
+                <ul>
+                    {gamesList.map((game) => (
+                        <GameCard game={game} key={game.id} />
+                    ))}
+                </ul>
+            ) : (
+                <div className="search-placeholder">
+                    <h5>
+                        There is no result for <span>{searchRequest}</span>{" "}
+                        search
+                    </h5>
+                </div>
+            )}
         </div>
     );
 };
