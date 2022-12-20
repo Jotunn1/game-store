@@ -3,9 +3,7 @@ import { ReactComponent as CrossIcon } from "../../assets/images/cross.svg";
 import { actions } from "../../store/actions";
 const DeleteFromCart = ({ gameId }) => {
     const dispatch = useDispatch();
-    const deleteFromCart = (gameId) => {
-        console.log(gameId);
-    };
+
     return (
         <span>
             <button

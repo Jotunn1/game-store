@@ -188,8 +188,6 @@ header {
                     fill: $black-color;
                 }
             }
-
-
         }
     }
 
@@ -625,7 +623,7 @@ header {
                 display: flex;
                 flex-direction: column;
                 gap: 10px;
-                $transition-props: margin,
+                $transition-props: margin-bottom,
                 height;
                 transition: $transition-props 1s ease-in;
 
@@ -656,8 +654,8 @@ header {
 
             &.active {
                 >ul {
-                    margin: 20px 0;
-                    height: 174px;
+                    margin-bottom: 10px;
+                    height: var(--list-height);
 
                     >li,
                     a {
@@ -677,7 +675,7 @@ header {
             &.hide {
                 >ul {
                     pointer-events: none;
-                    margin: 0;
+                    margin-bottom: 0;
                     height: 0;
 
                     >li,
