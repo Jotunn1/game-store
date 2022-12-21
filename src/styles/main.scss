@@ -766,6 +766,7 @@ header {
     flex-direction: column;
     justify-content: space-between;
     padding: 25px;
+    overflow-y: scroll;
 
     .button {
         &:not(.delete-btn) {
@@ -858,6 +859,18 @@ header {
             &:hover {
                 background-color: #353535;
             }
+        }
+    }
+
+    .total {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        >* {
+            font-family: "GT Bold";
+            color: #999;
+            font-size: 18px;
         }
     }
 }

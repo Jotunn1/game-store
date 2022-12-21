@@ -21,6 +21,7 @@ const CartButton = () => {
             <CartSidePanel
                 isCartPanelActive={isCartPanelActive}
                 setIsCartPanelActive={setIsCartPanelActive}
+                total={cartTotal}
             />
         </>
     );

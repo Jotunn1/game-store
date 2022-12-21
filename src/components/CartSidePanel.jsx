@@ -2,7 +2,11 @@ import { useDispatch, useSelector } from "react-redux";
 import PrCartListItem from "./primitives/PrCartListItem";
 import { actions } from "../store/actions";
 
-export const CartSidePanel = ({ isCartPanelActive, setIsCartPanelActive }) => {
+export const CartSidePanel = ({
+    isCartPanelActive,
+    setIsCartPanelActive,
+    total,
+}) => {
     const cart = useSelector((state) => state.cart);
     const dispatch = useDispatch();
 
@@ -59,13 +63,16 @@ export const CartSidePanel = ({ isCartPanelActive, setIsCartPanelActive }) => {
                         <h2>You have no games in cart</h2>
                     )}
                 </div>
-
-                <button
+                <div className="total">
+                    <h5>Total</h5>
+                    <p>$ {total}</p>
+                </div>
+                {/* <button
                     className="button close-panel"
                     onClick={() => setIsCartPanelActive(false)}
                 >
                     Close Panel
-                </button>
+                </button> */}
             </div>
         </div>
     );
