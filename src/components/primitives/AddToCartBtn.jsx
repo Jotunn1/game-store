@@ -13,10 +13,14 @@ const AddToCartBtn = ({ gameId }) => {
         setIsInCart(cart.some((el) => el.id === gameId));
     }, [cart]);
 
+    const clickHandler = (e) => {
+        e.stopPropagation();
+        dispatch(actions.addToCart(gameId));
+    };
     return (
         <button
             className={"button cart-btn" + (isInCart ? " added" : "")}
-            onClick={() => dispatch(actions.addToCart(gameId))}
+            onClick={clickHandler}
         >
             {isInCart ? (
                 <>
