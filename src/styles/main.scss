@@ -234,11 +234,19 @@ header {
 .bg-video {
     background-attachment: fixed;
     bottom: 0;
+    object-fit: cover;
+    width: 100%;
     min-height: 100%;
     min-width: 100%;
     position: fixed;
     right: 0;
+    // left: 0;
+    top: 0;
     z-index: -1;
+
+    &.mobile {
+        display: none;
+    }
 }
 
 .home-page {
@@ -477,6 +485,12 @@ header {
                 align-items: center;
                 justify-content: space-between;
                 margin: 15px;
+
+                >p {
+                    color: $gray-color-2;
+                    font-family: "GT Light";
+                    font-size: 14px;
+                }
             }
 
             h2 {
@@ -715,7 +729,7 @@ header {
 .error-page {
     width: 100vw;
     height: 100vh;
-    background-color: rosybrown;
+    background-color: $main-bg-color;
     display: grid;
     place-items: center;
 }
@@ -892,35 +906,6 @@ header {
     }
 }
 
-@media screen and (max-width:1024px) {
-    .home-page {
-        >div {
-            width: 40vw;
-
-            &:first-of-type {
-                min-width: 460px;
-            }
-        }
-
-        .btns-row {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            grid-row-gap: 15px;
-
-            >button {
-                justify-content: center;
-            }
-        }
-    }
-
-    .browse-page {
-        .games {
-            &.grid>ul {
-                grid-template-columns: repeat(3, 1fr);
-            }
-        }
-    }
-}
 
 @keyframes cardAppeareance {
     0% {
@@ -933,3 +918,5 @@ header {
         transform: translateY(0);
     }
 }
+
+@import './media.scss';

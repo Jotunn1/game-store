@@ -11,7 +11,8 @@ const GameCard = ({ game }) => {
                 <img src={game.cover} alt={game.name} />
             </div>
             <div className="game-price">
-                <AddToCartBtn gameId={game.id} />${game.price}
+                <AddToCartBtn gameId={game.id} />
+                <p>${game.price}</p>
             </div>
             <h2>{game.name}</h2>
         </div>
