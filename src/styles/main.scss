@@ -545,7 +545,7 @@ header {
             justify-content: space-between;
 
             .about {
-                padding: 40px 25px 10px 25px;
+                padding: 40px 25px 20px 25px;
                 background-color: #1a1a1a;
                 border-top-left-radius: 16px;
                 border-top-right-radius: 16px;
@@ -562,7 +562,7 @@ header {
                     font-size: 16px;
                     line-height: 1.5;
                     word-spacing: 2px;
-                    height: 150px;
+                    max-height: 200px;
                     overflow: scroll;
                     overflow-x: hidden;
                 }

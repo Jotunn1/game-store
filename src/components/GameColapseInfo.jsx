@@ -34,7 +34,7 @@ const GameColapseInfo = ({ game }) => {
                 ref={collapsedList}
                 style={{ "--list-height": colapsedListheight + "px" }}
             >
-                <a href={game.link}>{game.surname} Website</a>
+                <a href={game.link} target="_blank">{game.surname} Website</a>
                 <li>Released: {game.release}</li>
                 <li>Platforms: {game.platforms}</li>
                 <li>Main Genre: {game.genre}</li>

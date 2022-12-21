@@ -2,7 +2,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
-import { Pagination, Navigation } from "swiper";
+import { Pagination, Navigation, Autoplay } from "swiper";
 
 const ImageSlider = ({ imagesArray }) => {
     return (
@@ -12,13 +12,17 @@ const ImageSlider = ({ imagesArray }) => {
             pagination={{
                 clickable: true,
             }}
+            autoplay={{
+                delay: 4000,
+                disableOnInteraction: false,
+            }}
             navigation={true}
-            modules={[Pagination, Navigation]}
+            modules={[Autoplay, Pagination, Navigation]}
         >
             {imagesArray.map((image) => {
                 return (
                     <SwiperSlide>
-                        <img src={image} alt="" />
+                        <img src={image} alt="slider image" loading="lazy" />
                     </SwiperSlide>
                 );
             })}
