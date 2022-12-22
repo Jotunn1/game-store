@@ -45,7 +45,6 @@ const reducer = (state, action) => {
                 ),
             };
         case "CLEAR_CART": {
-            console.log(action);
             return {
                 ...state,
                 cart: [],

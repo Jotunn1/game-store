@@ -1,7 +1,7 @@
 import GenresColumn from "../GenresColumn";
 import Games from "../Games";
 
-export const BrowsePage = () => {
+const BrowsePage = () => {
     return (
         <div className="browse-page">
             <GenresColumn />
@@ -9,3 +9,5 @@ export const BrowsePage = () => {
         </div>
     );
 };
+
+export default BrowsePage;
