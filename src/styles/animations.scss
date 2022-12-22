@@ -1,0 +1,155 @@
+$time-2: calc($base-time * 2); //0.6s
+$time-3: calc($base-time * 3); //0.9s
+$time-4: calc($base-time * 4); //1.2s
+$time-5: calc($base-time * 5); //1.5s
+$time-6: calc($base-time * 6); //1.8s
+
+//delays 
+$delay-1: 0.1s;
+$delay-2: 0.15s;
+$delay-3: 0.2s;
+$delay-4: 0.25s;
+$delay-5: 0.3s;
+$delay-6: 0.35s;
+$delay-7: 0.45s;
+$delay-8: 0.5s;
+
+
+//curves
+$default-curve: ease-in;
+$buttons-curve: cubic-bezier(.17, .8, 0, 1.54);
+
+header {
+    animation: show $time-2 $default-curve;
+}
+
+.home-page {
+
+    .main-title,
+    .nav-list,
+    .btns-row {
+        animation: show $time-2 $default-curve;
+    }
+
+    .main-title {
+
+        h1,
+        p {
+            animation: textAppeareance $time-2 $default-curve
+        }
+
+        h1 {
+            animation-delay: $delay-1;
+        }
+
+        p {
+            animation-delay: $delay-3;
+        }
+    }
+
+    .btns-row {
+        >button {
+            opacity: 0;
+            animation: buttonsAppeareance $time-3 $default-curve forwards;
+
+            @for $i from 1 through 4 {
+                &:nth-of-type(#{$i}) {
+                    animation-delay: calc(#{$delay-1} * #{$i});
+                }
+            }
+        }
+    }
+
+    .nav-list {
+        h2 {
+            animation: textAppeareance $time-3 $default-curve;
+        }
+
+        ul>button {
+            opacity: 0;
+            animation: buttonsAppeareance $time-3 $buttons-curve forwards;
+
+            @for $i from 1 through 8 {
+                &:nth-of-type(#{$i}) {
+                    animation-delay: calc(#{$delay-1} * #{$i});
+                }
+            }
+        }
+    }
+}
+
+@keyframes show {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes dot-load {
+    0% {
+        left: -40px;
+        background: #29f29c;
+        opacity: .6
+    }
+
+    50% {
+        left: 50%;
+        background: #1cd9b9;
+        opacity: .9
+    }
+
+    100% {
+        left: 100%;
+        background: #019ffb;
+        opacity: .6
+    }
+}
+
+@keyframes pb-width {
+    0% {
+        width: 0%;
+    }
+
+    100% {
+        width: 100%;
+    }
+}
+
+@keyframes cardAppeareance {
+    0% {
+        opacity: 0;
+        transform: translateY(20%);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes textAppeareance {
+    0% {
+        opacity: 0;
+        transform: translateX(40%);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes buttonsAppeareance {
+    0% {
+        opacity: 0;
+        transform: translateX(100%);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}

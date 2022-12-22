@@ -1,4 +1,4 @@
-@import './reset.scss', './--scss.scss', './fonts.scss';
+@import './reset.scss', './--scss.scss', './fonts.scss', './animations.scss';
 
 body {
     margin: 0;
@@ -6,8 +6,6 @@ body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
-
-
 
 header {
     height: var(--header-height);
@@ -1022,48 +1020,6 @@ header {
                 animation-delay: -.3s;
             }
         }
-    }
-
-    @keyframes dot-load {
-        0% {
-            left: -40px;
-            background: #29f29c;
-            opacity: .6
-        }
-
-        50% {
-            left: 50%;
-            background: #1cd9b9;
-            opacity: .9
-        }
-
-        100% {
-            left: 100%;
-            background: #019ffb;
-            opacity: .6
-        }
-    }
-}
-
-@keyframes pb-width {
-    0% {
-        width: 0%;
-    }
-
-    100% {
-        width: 100%;
-    }
-}
-
-@keyframes cardAppeareance {
-    0% {
-        opacity: 0;
-        transform: translateY(20%);
-    }
-
-    100% {
-        opacity: 1;
-        transform: translateY(0);
     }
 }
 
