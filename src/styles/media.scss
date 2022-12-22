@@ -34,9 +34,16 @@
 
 
 @media screen and (max-width:850px) {
-    .cart-panel {
-        width: 45%;
+    .cart-bg {
+        .cart-panel {
+            width: 45%;
+        }
+
+        .outside-cart {
+            width: 55%;
+        }
     }
+
 
     header {
 

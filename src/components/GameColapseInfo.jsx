@@ -9,7 +9,6 @@ const GameColapseInfo = ({ game }) => {
 
     useEffect(() => {
         setcolapsedListHeight(setListHeight(collapsedList));
-        console.log(colapsedListheight, "colapsedListheight");
         // window.addEventListener("resize", () => {
         //     setcolapsedListHeight(setListHeight(collapsedList));
         //     console.log(colapsedListheight, "colapsedListheight from resize");
