@@ -181,6 +181,10 @@
         .right-side {
             align-self: center;
         }
+
+        // &.scroll-top:not(.bg) {
+        //     backdrop-filter: blur(10px);
+        // }
     }
 
     .bg-video {
@@ -196,7 +200,8 @@
     }
 
     .browse-page {
-        grid-template-columns: 1fr;
+        display: flex;
+        flex-direction: column;
 
         .genres-col {
             padding: 20px 10px;
