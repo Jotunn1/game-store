@@ -106,6 +106,10 @@
         .games {
             padding: 0 10px;
 
+            >h2 {
+                text-align: center;
+            }
+
             .controls-row {
                 padding: 20px 0 15px;
 
@@ -152,6 +156,21 @@
         --header-height: 56px;
     }
 
+    .button.cart-btn h4 {
+        font-size: 20px;
+    }
+
+
+    .cart-bg {
+        .cart-panel {
+            width: 70%;
+        }
+
+        .outside-cart {
+            width: 30%;
+        }
+    }
+
     header {
         padding: 10px 15px;
 
@@ -177,8 +196,27 @@
     }
 
     .browse-page {
+        grid-template-columns: 1fr;
+
         .genres-col {
-            padding: 5px;
+            padding: 20px 10px;
+            overflow-x: hidden;
+
+            >h3 {
+                display: none;
+            }
+
+            >ul {
+                margin-top: 0;
+                display: flex;
+                gap: 20px;
+                align-items: center;
+                overflow-x: scroll;
+
+                >:not(:first-child) {
+                    margin-top: 0;
+                }
+            }
         }
 
         .games {
