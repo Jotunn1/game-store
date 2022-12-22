@@ -34,7 +34,6 @@ export const Header = () => {
             </div>
             <div className="right-side">
                 <CartButton />
-                {/* <PrGhostBtn icon={"cart"} btnText={"cart: 0 $"} /> */}
             </div>
         </header>
     );

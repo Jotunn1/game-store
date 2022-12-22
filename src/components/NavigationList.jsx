@@ -3,7 +3,7 @@ import PrButtonCta from "./primitives/PrButtonCta";
 const NavigationList = () => {
     const navList = [
         { icon: "game", btnText: "game page", innerLink: "/browse" },
-        { icon: "404", btnText: "404 page", innerLink: "*" },
+        { icon: "404", btnText: "404 page", innerLink: "404" },
         { icon: "placeholder", btnText: "placeholder" },
         {
             icon: "git",
