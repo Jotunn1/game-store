@@ -77,8 +77,52 @@ header {
 
 .home-page,
 .browse-page,
-.game-page {
+.game-page,
+.tech-page {
     padding-top: var(--header-height);
+}
+
+.tech-page {
+    padding: var(--header-height) 30px 10px;
+    background-color: $main-bg-color;
+    min-height: 100vh;
+
+    >h1 {
+        margin: 50px 0 50px;
+        text-align: center;
+        font-family: "GT Bold";
+        font-size: 80px;
+    }
+
+    >ul {
+        --count: 5;
+        $gap: 25px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: $gap;
+
+        >li {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            width: calc((100% - (#{$gap} * (var(--count) - 1))) / var(--count));
+
+            >img {
+                width: 150px;
+                height: 150px;
+            }
+
+            >h4 {
+                text-align: center;
+                font-family: 'GT Ultrabold';
+                font-size: 30px;
+                letter-spacing: 4px;
+            }
+        }
+    }
 }
 
 .icon {
