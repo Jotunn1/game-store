@@ -20,7 +20,9 @@ const TechnogoliesPage = () => {
     ];
     return (
         <div className="tech-page">
-            <h1>Used Technologies</h1>
+            <span>
+                <h1>Used Technologies</h1>
+            </span>
             <ul>
                 {technologiesList.map((tech) => (
                     <li>

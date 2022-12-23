@@ -5,6 +5,10 @@ body {
     color: $white-color;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+
+    &.block-scroll {
+        overflow: hidden;
+    }
 }
 
 header {
@@ -87,8 +91,8 @@ header {
     background-color: $main-bg-color;
     min-height: 100vh;
 
-    >h1 {
-        margin: 50px 0 50px;
+    h1 {
+        padding: 50px 0 50px;
         text-align: center;
         font-family: "GT Bold";
         font-size: 80px;
@@ -198,12 +202,12 @@ header {
     }
 
     &.genre-btn {
+        grid-gap: 15px;
+
         >h3 {
             color: $white-color;
             font-family: 'GT Regular';
             font-size: 22px;
-            transition: letter-spacing $base-time cubic-bezier(0, -0.1, .99, -0.7);
-            // TODO fix transition curve for letter
         }
 
         .genre-icon {
@@ -224,10 +228,6 @@ header {
         }
 
         &:hover {
-            >h3 {
-                letter-spacing: 3px;
-            }
-
             .genre-icon {
                 background-color: $white-color;
 
@@ -330,13 +330,13 @@ header {
     .main-title {
         padding: 50px 30px;
 
-        >h1 {
+        h1 {
             font-family: 'GT Bold';
             font-size: 90px;
             margin-bottom: 10px;
         }
 
-        >p {
+        p {
             font-family: 'GT Regular';
             font-size: 20px;
 
@@ -353,14 +353,14 @@ header {
         align-self: flex-end;
         margin-right: 50px;
 
-        >h2 {
+        h2 {
             font-family: "GT Bold";
             font-size: 26px;
-            margin-bottom: 14px;
             text-align: center;
         }
 
         >ul {
+            margin-top: 14px;
             display: flex;
             flex-direction: column;
             grid-gap: 8px;
@@ -411,9 +411,9 @@ header {
     grid-template-columns: 2fr 8fr;
 
     .genres-col {
-        padding: 20px 25px;
+        padding: 30px 40px;
 
-        >h3 {
+        >span>h3 {
             font-family: 'GT Medium';
             font-size: 30px;
             letter-spacing: 2px;
@@ -429,7 +429,7 @@ header {
     }
 
     .games {
-        padding-right: 50px;
+        padding-right: 40px;
 
         &.grid>ul {
             display: grid;
@@ -688,7 +688,7 @@ header {
                 gap: 10px;
                 $transition-props: margin-bottom,
                 height;
-                transition: $transition-props 1s ease-in;
+                transition: $transition-props $time-2 ease-in;
 
                 >a {
                     font-family: "GT Bold";
@@ -711,7 +711,7 @@ header {
                     font-size: 15px;
                     letter-spacing: 1px;
                     line-height: 1.2;
-                    transition: opacity calc($base-time * 2);
+                    transition: opacity $base-time ease-in;
                 }
             }
 
@@ -728,7 +728,7 @@ header {
                     >li {
                         @for $i from 1 through 5 {
                             &:nth-of-type(#{$i}) {
-                                transition-delay: calc(0.15s * #{$i});
+                                transition-delay: calc(#{$delay-2} * #{$i});
                             }
                         }
                     }
@@ -747,13 +747,13 @@ header {
                     }
 
                     >a {
-                        transition-delay: 0.75s;
+                        transition-delay: 0.5s;
                     }
 
                     >li {
                         @for $i from 1 through 5 {
                             &:nth-of-type(#{$i}) {
-                                transition-delay: calc(0.6s / #{$i});
+                                transition-delay: calc(#{$delay-1} / #{$i});
                             }
                         }
                     }
@@ -823,7 +823,7 @@ header {
             left: 0;
             height: 15px;
             width: 100%;
-            background-color: $green-color;
+            background: $green-blue-gradient;
         }
     }
 }

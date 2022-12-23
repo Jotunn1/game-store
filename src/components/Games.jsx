@@ -11,12 +11,13 @@ const Games = () => {
 
     return (
         <div className={"games " + gamesLayout}>
-            <h2>Games</h2>
+            <span>
+                <h2>Games</h2>
+            </span>
             <div className="controls-row">
                 <FilterControls />
                 <GridControls setGamesLayout={setGamesLayout} />
             </div>
-
             {gamesList.length > 0 ? (
                 <ul>
                     {gamesList.map((game) => (

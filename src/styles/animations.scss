@@ -24,6 +24,17 @@ header {
     animation: show $time-2 $default-curve;
 }
 
+.games,
+.genres-col,
+.main-title,
+.nav-list,
+.tech-page {
+    >span {
+        display: block;
+        overflow: hidden;
+    }
+}
+
 .home-page {
 
     .main-title,
@@ -44,31 +55,31 @@ header {
         }
 
         p {
-            animation-delay: $delay-3;
+            animation-delay: $delay-2;
         }
     }
 
     .btns-row {
         >button {
             opacity: 0;
-            animation: buttonsAppeareance $time-3 $default-curve forwards;
+            animation: buttonsAppeareance $time-3 $buttons-curve forwards;
 
             @for $i from 1 through 4 {
                 &:nth-of-type(#{$i}) {
-                    animation-delay: calc(#{$delay-1} * #{$i});
+                    animation-delay: calc(#{$delay-2} * #{$i});
                 }
             }
         }
     }
 
     .nav-list {
-        h2 {
-            animation: textAppeareance $time-3 $default-curve;
+        span>h2 {
+            animation: textAppeareance $time-2 $default-curve;
         }
 
         ul>button {
             opacity: 0;
-            animation: buttonsAppeareance $time-3 $buttons-curve forwards;
+            animation: buttonsAppeareance $time-4 $buttons-curve forwards;
 
             @for $i from 1 through 8 {
                 &:nth-of-type(#{$i}) {
@@ -82,12 +93,12 @@ header {
 .browse-page {
     .genres-col {
 
-        h3,
-        ul>button {
-            animation: cardAppeareance $time-3 $buttons-curve forwards;
+        >span>h3 {
+            animation: textAppeareance $time-2 $default-curve;
         }
 
         ul>button {
+            animation: cardAppeareance $time-3 $buttons-curve forwards;
             opacity: 0;
 
             @for $i from 1 through 9 {
@@ -99,19 +110,19 @@ header {
     }
 
     .games {
-        >h2 {
-            animation: cardAppeareance $time-2 $default-curve;
+        >span>h2 {
+            animation: textAppeareance $time-2 $default-curve;
         }
 
         >ul {
             >* {
                 opacity: 0;
-                animation: cardAppeareance $time-5 ease-in-out forwards;
+                animation: cardAppeareance $time-3 ease-out forwards;
             }
 
             @for $i from 1 through 34 {
                 >:nth-child(#{$i}) {
-                    animation-delay: calc(0.08s * #{$i});
+                    animation-delay: calc(#{$delay-1} * #{$i});
                 }
             }
         }
@@ -119,11 +130,11 @@ header {
         .controls-row {
             button {
                 opacity: 0;
-                animation: cardAppeareance $time-4 $buttons-curve forwards;
+                animation: buttonsAppeareance $time-6 $buttons-curve forwards;
 
                 @for $i from 1 through 4 {
                     &:nth-of-type(#{$i}) {
-                        animation-delay:calc(0.04s * #{$i})
+                        animation-delay:calc(#{$delay-5} * #{$i})
                     }
                 }
             }
@@ -177,7 +188,7 @@ header {
 }
 
 .tech-page {
-    >h1 {
+    >span>h1 {
         animation: textAppeareance $time-2 $default-curve;
     }
 
@@ -253,6 +264,18 @@ header {
     }
 }
 
+@keyframes filterBtnsAppeareance {
+    0% {
+        opacity: 0;
+        transform: translateX(400%);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
 @keyframes cardAppeareance {
     0% {
         opacity: 0;
@@ -268,23 +291,23 @@ header {
 @keyframes textAppeareance {
     0% {
         opacity: 0;
-        transform: translateX(40%);
+        transform: translateY(100%);
     }
 
     100% {
         opacity: 1;
-        transform: translateX(0);
+        transform: translateY(0);
     }
 }
 
 @keyframes buttonsAppeareance {
     0% {
         opacity: 0;
-        transform: translateX(100%);
+        transform: scale(0.3);
     }
 
     100% {
         opacity: 1;
-        transform: translateX(0);
+        transform: scale(1);
     }
 }

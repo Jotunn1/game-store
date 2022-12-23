@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import PrCartListItem from "./primitives/PrCartListItem";
 import { actions } from "../store/actions";
+import { useEffect } from "react";
 
 export const CartSidePanel = ({
     isCartPanelActive,

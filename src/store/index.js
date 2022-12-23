@@ -14,6 +14,7 @@ const reducer = (state, action) => {
             if (action.payload.name === "none")
                 return {
                     ...state,
+                    searchRequest: "",
                     selectedGenre: action.payload.name,
                     gamesList: games,
                 };

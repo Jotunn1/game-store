@@ -37,7 +37,9 @@ const NavigationList = () => {
     ];
     return (
         <div className="nav-list blured-bg">
-            <h2>Navigation</h2>
+            <span>
+                <h2>Navigation</h2>
+            </span>
             <ul>
                 {navList.map((el, index) =>
                     el.outerLink ? (
