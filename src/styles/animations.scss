@@ -14,7 +14,6 @@ $delay-6: 0.35s;
 $delay-7: 0.45s;
 $delay-8: 0.5s;
 
-
 //curves
 $default-curve: ease-in;
 $buttons-curve: cubic-bezier(.17, .8, 0, 1.54);
@@ -174,6 +173,23 @@ header {
 
     .progress-bar {
         animation: pb-width 7s linear;
+    }
+}
+
+.tech-page {
+    >h1 {
+        animation: textAppeareance $time-2 $default-curve;
+    }
+
+    li {
+        opacity: 0;
+        animation: cardAppeareance $time-4 $buttons-curve forwards;
+
+        @for $i from 1 through 8 {
+            &:nth-of-type(#{$i}) {
+                animation-delay: calc(#{$delay-2} * #{$i});
+            }
+        }
     }
 }
 
