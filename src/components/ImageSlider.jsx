@@ -19,9 +19,9 @@ const ImageSlider = ({ imagesArray }) => {
             navigation={true}
             modules={[Autoplay, Pagination, Navigation]}
         >
-            {imagesArray.map((image) => {
+            {imagesArray.map((image, index) => {
                 return (
-                    <SwiperSlide>
+                    <SwiperSlide key={index}>
                         <img src={image} alt="slider image" loading="lazy" />
                     </SwiperSlide>
                 );

@@ -2,17 +2,9 @@
 
 body {
     margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-        'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-        sans-serif;
     color: $white-color;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-}
-
-code {
-    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-        monospace;
 }
 
 header {
@@ -24,11 +16,22 @@ header {
     top: 0;
     left: 0;
     right: 0;
-    transition: background-color $base-time;
+    $transition-props: background-color,
+    backdrop-filter,
+    transform;
+    transition: $transition-props $base-time ease-in;
     z-index: 10;
 
     &.bg {
         background-color: $main-bg-color;
+    }
+
+    &.scroll-top {
+        transform: translateY(0);
+    }
+
+    &.scroll-bottom {
+        transform: translateY(-100%);
     }
 
     >div {
@@ -195,7 +198,7 @@ header {
         $cart-btn-color: rgb(153, 153, 153);
 
         h4 {
-            font-size: 15px;
+            font-size: 20px;
             color: $cart-btn-color;
             font-family: 'GT Light';
             transition: color $base-time ease-out;
@@ -231,24 +234,38 @@ header {
     }
 }
 
-.bg-video {
+.video-wrapper {
     background-attachment: fixed;
     bottom: 0;
-    object-fit: cover;
     width: 100%;
     min-height: 100%;
     min-width: 100%;
     position: fixed;
     right: 0;
-    // left: 0;
     top: 0;
     z-index: -1;
+    background-color: $main-bg-color;
 
-    &.mobile {
-        display: none;
+    .bg-video {
+        opacity: 0;
+        object-fit: cover;
+        height: 100%;
+        width: 100%;
+        transition: opacity calc($base-time * 2) ease-out;
+
+        &.mobile {
+            display: none;
+        }
+    }
+
+    &.loaded {
+        .bg-video {
+            opacity: 1;
+        }
     }
 }
 
+// TODO separate styles
 .home-page {
     display: flex;
     justify-content: space-between;
@@ -489,7 +506,7 @@ header {
                 >p {
                     color: $gray-color-2;
                     font-family: "GT Light";
-                    font-size: 14px;
+                    font-size: 16px;
                 }
             }
 
@@ -618,6 +635,7 @@ header {
                 }
 
                 >p {
+                    font-family: "GT Light";
                     font-size: 16px;
                     margin-right: 10px;
                 }
@@ -786,16 +804,18 @@ header {
     right: 0;
     left: 0;
     bottom: 0;
+    overflow: hidden;
     background-color: rgba(0, 0, 0, 0.6);
     height: 100vh;
     transition: background-color $base-time;
 
     .outside-cart {
-        width: 75%;
+        width: 70%;
         height: 100%;
     }
 
     &.active {
+
         .cart-panel {
             transform: translateX(0);
         }
@@ -816,8 +836,8 @@ header {
     position: fixed;
     top: 0;
     right: 0;
-    height: 100%;
-    width: 25%;
+    height: 100vh;
+    width: 30%;
     background-color: rgb(26, 26, 26);
     transition: transform 0.6s ease-out;
     z-index: 15;
@@ -968,6 +988,92 @@ header {
 .swiper-button-prev,
 .swiper-button-next {
     color: $white-color;
+}
+
+.preloader {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background-color: #222;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    transition: opacity calc($base-time * 2) ease-in;
+
+    &.active {
+        z-index: 11;
+        opacity: 1;
+    }
+
+    &.hide {
+        pointer-events: none;
+        user-select: none;
+        opacity: 0;
+    }
+
+    >h2 {
+        font-family: "GT Bold", sans-serif;
+        text-align: center;
+        font-size: 70px;
+        height: fit-content;
+    }
+
+    .progress {
+        width: 80%;
+        background: $black-color;
+        height: 15px;
+        border-radius: 50%;
+        overflow: hidden;
+
+        .dot {
+            display: inline-block;
+            height: 10px;
+            width: 10px;
+            background: #29f29c;
+            position: relative;
+            left: -40px;
+            animation: dot-load infinite 4s cubic-bezier(0.455, 0.030, 0.515, 0.955);
+            border-radius: 50%;
+
+            &:nth-of-type(1) {
+                animation-delay: .3s;
+            }
+
+            &:nth-of-type(2) {
+                animation-delay: .15s;
+            }
+
+            &:nth-of-type(4) {
+                animation-delay: -.15s;
+            }
+
+            &:nth-of-type(5) {
+                animation-delay: -.3s;
+            }
+        }
+    }
+
+    @keyframes dot-load {
+        0% {
+            left: -40px;
+            background: #29f29c;
+            opacity: .6
+        }
+
+        50% {
+            left: 50%;
+            background: #1cd9b9;
+            opacity: .9
+        }
+
+        100% {
+            left: 100%;
+            background: #019ffb;
+            opacity: .6
+        }
+    }
 }
 
 @keyframes pb-width {
