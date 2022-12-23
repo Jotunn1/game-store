@@ -386,19 +386,6 @@ header {
             grid-gap: 20px;
         }
 
-        >ul {
-            >* {
-                opacity: 0;
-                animation: cardAppeareance calc($base-time * 3) ease-in-out forwards;
-            }
-
-            @for $i from 1 through 34 {
-                >:nth-child(#{$i}) {
-                    animation-delay: calc(0.1s * #{$i});
-                }
-            }
-        }
-
         h2 {
             font-size: 50px;
             font-family: 'GT Bold';
@@ -748,7 +735,7 @@ header {
         border-radius: 30px;
         overflow: hidden;
         padding: 75px;
-        animation: cardAppeareance calc($base-time * 2) ease-out;
+
 
         >img {
             width: 250px;
@@ -779,7 +766,6 @@ header {
             height: 15px;
             width: 100%;
             background-color: $green-color;
-            animation: pb-width 7s linear;
         }
     }
 }
@@ -1001,24 +987,7 @@ header {
             background: #29f29c;
             position: relative;
             left: -40px;
-            animation: dot-load infinite 4s cubic-bezier(0.455, 0.030, 0.515, 0.955);
             border-radius: 50%;
-
-            &:nth-of-type(1) {
-                animation-delay: .3s;
-            }
-
-            &:nth-of-type(2) {
-                animation-delay: .15s;
-            }
-
-            &:nth-of-type(4) {
-                animation-delay: -.15s;
-            }
-
-            &:nth-of-type(5) {
-                animation-delay: -.3s;
-            }
         }
     }
 }

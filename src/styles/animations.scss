@@ -18,6 +18,8 @@ $delay-8: 0.5s;
 //curves
 $default-curve: ease-in;
 $buttons-curve: cubic-bezier(.17, .8, 0, 1.54);
+$dot-curve: cubic-bezier(0.455, 0.030, 0.515, 0.955);
+$slider-curve: cubic-bezier(.01, .97, 1, 1.36);
 
 header {
     animation: show $time-2 $default-curve;
@@ -78,6 +80,123 @@ header {
     }
 }
 
+.browse-page {
+    .genres-col {
+
+        h3,
+        ul>button {
+            animation: cardAppeareance $time-3 $buttons-curve forwards;
+        }
+
+        ul>button {
+            opacity: 0;
+
+            @for $i from 1 through 9 {
+                &:nth-of-type(#{$i}) {
+                    animation-delay:calc(#{$delay-2} * #{$i})
+                }
+            }
+        }
+    }
+
+    .games {
+        >h2 {
+            animation: cardAppeareance $time-2 $default-curve;
+        }
+
+        >ul {
+            >* {
+                opacity: 0;
+                animation: cardAppeareance $time-5 ease-in-out forwards;
+            }
+
+            @for $i from 1 through 34 {
+                >:nth-child(#{$i}) {
+                    animation-delay: calc(0.08s * #{$i});
+                }
+            }
+        }
+
+        .controls-row {
+            button {
+                opacity: 0;
+                animation: cardAppeareance $time-4 $buttons-curve forwards;
+
+                @for $i from 1 through 4 {
+                    &:nth-of-type(#{$i}) {
+                        animation-delay:calc(0.04s * #{$i})
+                    }
+                }
+            }
+        }
+    }
+}
+
+.game-page {
+    .first-row {
+        h1 {
+            animation: textAppeareance $base-time $default-curve;
+        }
+
+        a {
+            opacity: 0;
+            animation: textAppeareance $base-time $default-curve forwards;
+            animation-delay: $delay-6;
+        }
+    }
+
+    .game-content {
+        .swiper {
+            animation: cardAppeareance $time-2 $slider-curve;
+        }
+
+        .game-info {
+            >div {
+                opacity: 0;
+
+                &:first-of-type {
+                    animation: textAppeareance $time-2 ease-out forwards;
+                    animation-delay: $delay-4;
+                }
+            }
+
+            .game-buttons {
+                animation: buttonsAppeareance $time-2 $default-curve forwards;
+                animation-delay: $delay-5;
+            }
+
+        }
+    }
+}
+
+.error-page>div {
+    animation: cardAppeareance $time-2 ease-out;
+
+    .progress-bar {
+        animation: pb-width 7s linear;
+    }
+}
+
+.preloader.progress.dot {
+    animation: dot-load infinite 4s $dot-curve;
+
+    &:nth-of-type(1) {
+        animation-delay: $delay-5;
+    }
+
+    &:nth-of-type(2) {
+        animation-delay: $delay-2;
+    }
+
+    &:nth-of-type(4) {
+        animation-delay: (-$delay-5);
+    }
+
+    &:nth-of-type(5) {
+        animation-delay: (-$delay-2);
+    }
+}
+
 @keyframes show {
     from {
         opacity: 0;
@@ -121,7 +240,7 @@ header {
 @keyframes cardAppeareance {
     0% {
         opacity: 0;
-        transform: translateY(20%);
+        transform: translateY(40%);
     }
 
     100% {
