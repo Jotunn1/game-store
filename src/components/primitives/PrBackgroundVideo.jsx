@@ -1,15 +1,18 @@
+import { useState } from "react";
 import desktopBgVideo from "../../assets/videos/desktop-bg-video.mp4";
 import mobileBgVideo from "../../assets/videos/mobile-bg-video.mp4";
 
 const PrBackgroundVideo = () => {
-    // const preloaderHandler = (e) => {
-    //     console.log(e);
-    //     isPreloaderActive.current = false;
-    //     console.log(isPreloaderActive.current);
-    // };
-
+    const [isVideoLoaded, setIsVideoLoaded] = useState(false);
+    const videoLoadHandler = () => {
+        setIsVideoLoaded(true);
+    };
     return (
-        <>
+        <div
+            className={
+                "video-wrapper " + (isVideoLoaded ? "loaded" : "placeholder")
+            }
+        >
             <video autoPlay loop muted className="bg-video mobile">
                 <source src={mobileBgVideo} type="video/mp4" />
             </video>
@@ -18,11 +21,11 @@ const PrBackgroundVideo = () => {
                 loop
                 muted
                 className="bg-video desktop"
-                // onLoadedData={(e) => preloaderHandler(e)}
+                onLoadedData={() => videoLoadHandler()}
             >
                 <source src={desktopBgVideo} type="video/mp4" />
             </video>
-        </>
+        </div>
     );
 };
 

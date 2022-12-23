@@ -7,8 +7,6 @@ body {
     -moz-osx-font-smoothing: grayscale;
 }
 
-
-
 header {
     height: var(--header-height);
     padding: 20px 40px;
@@ -236,24 +234,38 @@ header {
     }
 }
 
-.bg-video {
+.video-wrapper {
     background-attachment: fixed;
     bottom: 0;
-    object-fit: cover;
     width: 100%;
     min-height: 100%;
     min-width: 100%;
     position: fixed;
     right: 0;
-    // left: 0;
     top: 0;
     z-index: -1;
+    background-color: $main-bg-color;
 
-    &.mobile {
-        display: none;
+    .bg-video {
+        opacity: 0;
+        object-fit: cover;
+        height: 100%;
+        width: 100%;
+        transition: opacity calc($base-time * 2) ease-out;
+
+        &.mobile {
+            display: none;
+        }
+    }
+
+    &.loaded {
+        .bg-video {
+            opacity: 1;
+        }
     }
 }
 
+// TODO separate styles
 .home-page {
     display: flex;
     justify-content: space-between;

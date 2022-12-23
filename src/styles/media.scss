@@ -140,7 +140,6 @@
 
         .swiper {
             img {
-                height: 100%;
                 object-fit: cover;
             }
         }
@@ -181,21 +180,19 @@
         .right-side {
             align-self: center;
         }
-
-        // &.scroll-top:not(.bg) {
-        //     backdrop-filter: blur(10px);
-        // }
     }
 
-    .bg-video {
-        &.desktop {
-            display: none;
-        }
+    .video-wrapper.loaded {
+        .bg-video {
+            &.desktop {
+                display: none;
+            }
 
-        &.mobile {
-            height: 100vh;
-            width: 100vw;
-            display: flex;
+            &.mobile {
+                height: 100vh;
+                width: 100vw;
+                display: flex;
+            }
         }
     }
 
