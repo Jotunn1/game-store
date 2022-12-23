@@ -951,6 +951,25 @@ header {
     }
 }
 
+.swiper-pagination-bullet {
+    background: $gray-color-2;
+
+    &.swiper-pagination-bullet-active {
+        background: $white-color;
+    }
+
+    &:not(.swiper-pagination-bullet-active) {
+        &:hover {
+            opacity: 0.5;
+        }
+    }
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+    color: $white-color;
+}
+
 @keyframes pb-width {
     0% {
         width: 0%;
