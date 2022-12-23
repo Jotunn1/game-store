@@ -140,13 +140,18 @@
 
         .swiper {
             img {
-                height: 100%;
                 object-fit: cover;
             }
         }
 
         .game-content {
             grid-template-columns: 1fr;
+        }
+    }
+
+    .tech-page {
+        >ul {
+            --count: 3;
         }
     }
 }
@@ -160,6 +165,27 @@
         font-size: 20px;
     }
 
+    .tech-page {
+        padding: var(--header-height) 10px 10px;
+
+        >h1 {
+            font-size: 40px;
+            margin: 25px 0;
+        }
+
+        >ul {
+            --count: 2;
+
+            >li {
+                gap: 15px;
+
+                >img {
+                    width: 80px;
+                    height: 80px;
+                }
+            }
+        }
+    }
 
     .cart-bg {
         .cart-panel {
@@ -181,21 +207,19 @@
         .right-side {
             align-self: center;
         }
-
-        // &.scroll-top:not(.bg) {
-        //     backdrop-filter: blur(10px);
-        // }
     }
 
-    .bg-video {
-        &.desktop {
-            display: none;
-        }
+    .video-wrapper.loaded {
+        .bg-video {
+            &.desktop {
+                display: none;
+            }
 
-        &.mobile {
-            height: 100vh;
-            width: 100vw;
-            display: flex;
+            &.mobile {
+                height: 100vh;
+                width: 100vw;
+                display: flex;
+            }
         }
     }
 

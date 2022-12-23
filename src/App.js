@@ -5,6 +5,7 @@ import Layout from "./components/Layout";
 import GamePage from "./components/pages/GamePage";
 import { NotFoundPage } from "./components/pages/NotFoundPage";
 import GamePlaceholder from "./components/pages/GamePlaceholder";
+import TechnogoliesPage from "./components/pages/TechnogoliesPage";
 
 const router = createBrowserRouter([
     {
@@ -25,6 +26,10 @@ const router = createBrowserRouter([
             {
                 path: "/placeholder",
                 element: <GamePlaceholder />,
+            },
+            {
+                path: "/technologies",
+                element: <TechnogoliesPage />,
             },
             {
                 path: "*",

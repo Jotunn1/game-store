@@ -14,7 +14,11 @@ const NavigationList = () => {
             btnText: "commit Log",
             outerLink: "https://github.com/Jotunn1/game-store/commits/main",
         },
-        { icon: "react-logo", btnText: "technologies" },
+        {
+            icon: "react-logo",
+            btnText: "technologies",
+            innerLink: "technologies",
+        },
         {
             icon: "githublogo-dark",
             btnText: "source code",

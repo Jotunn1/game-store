@@ -9,7 +9,7 @@ export const Header = () => {
     const location = useLocation();
 
     const [y, setY] = useState(window.scrollY);
-    const scrollDirection = useRef("");
+    const scrollDirection = useRef("top");
 
     const handleNavigation = useCallback(
         (e) => {
