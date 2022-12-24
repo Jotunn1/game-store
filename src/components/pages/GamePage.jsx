@@ -24,8 +24,8 @@ const GamePage = () => {
                 <h1>{selectedGame.name}</h1>
             </div>
             <div className="game-content">
-                <ImageSlider imagesArray={selectedGame.footage} />
                 <GameInfo game={selectedGame} />
+                <ImageSlider imagesArray={selectedGame.footage} />
             </div>
         </div>
     );

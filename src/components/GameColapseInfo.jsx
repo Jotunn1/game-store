@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 
 const GameColapseInfo = ({ game }) => {
-    const [isColapsed, setIsColapsed] = useState(true);
+    const [isColapsed, setIsColapsed] = useState(false);
     const [colapsedListheight, setcolapsedListHeight] = useState(0);
     const collapsedList = useRef(null);
 
@@ -33,10 +33,12 @@ const GameColapseInfo = ({ game }) => {
                 ref={collapsedList}
                 style={{ "--list-height": colapsedListheight + "px" }}
             >
-                <a href={game.link} target="_blank">{game.surname} Website</a>
+                <a href={game.link} target="_blank">
+                    {game.surname} Website
+                </a>
                 <li>Released: {game.release}</li>
                 <li>Platforms: {game.platforms}</li>
-                <li>Main Genre: {game.genre}</li>
+                <li className="genre">Main Genre: {game.genre}</li>
                 <li>Developer: {game.developers}</li>
                 <li>Publisher: {game.publishers}</li>
             </ul>
