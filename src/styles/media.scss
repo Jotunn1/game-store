@@ -156,6 +156,12 @@
     }
 }
 
+@media screen and (min-width:2000px) {
+    .home-page>div:first-of-type {
+        width: 25vw;
+    }
+}
+
 @media screen and (max-width:500px) {
     body {
         --header-height: 56px;

@@ -23,7 +23,7 @@ const GamePlaceholder = () => {
             PlaceholderImage,
         ],
     };
-    
+
     return (
         <div className="game-page placeholder">
             <div className="first-row">
@@ -36,8 +36,8 @@ const GamePlaceholder = () => {
                 <h1>{placeholderGame.name}</h1>
             </div>
             <div className="game-content">
-                <ImageSlider imagesArray={placeholderGame.sliderImages} />
                 <GameInfo game={placeholderGame} />
+                <ImageSlider imagesArray={placeholderGame.sliderImages} />
             </div>
         </div>
     );

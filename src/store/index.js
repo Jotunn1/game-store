@@ -16,6 +16,7 @@ const reducer = (state, action) => {
                     ...state,
                     searchRequest: "",
                     selectedGenre: action.payload.name,
+                    searchRequest: "",
                     gamesList: games,
                 };
             else

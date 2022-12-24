@@ -1,5 +1,5 @@
-import { GameButtons } from "./GameButtons"
-import GameColapseInfo from "./GameColapseInfo"
+import { GameButtons } from "./GameButtons";
+import GameColapseInfo from "./GameColapseInfo";
 
 export const GameInfo = ({ game }) => {
     return (
@@ -7,13 +7,11 @@ export const GameInfo = ({ game }) => {
             <div>
                 <div className="about">
                     <h3>About</h3>
-                    <p>
-                        {game.desc}
-                    </p>
+                    <p>{game.desc}</p>
                 </div>
                 <GameColapseInfo game={game} />
             </div>
             <GameButtons price={game.price} gameId={game.id} />
         </div>
-    )
-}
+    );
+};

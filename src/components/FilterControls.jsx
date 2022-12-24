@@ -13,7 +13,6 @@ export const FilterControls = () => {
                 className="button"
                 onClick={() => dispatch(actions.selectGenre("none"))}
             >
-                {" "}
                 Clear Filter
             </button>
         </div>
