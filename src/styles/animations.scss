@@ -18,7 +18,7 @@ $delay-8: 0.5s;
 $default-curve: ease-in;
 $buttons-curve: cubic-bezier(.17, .8, 0, 1.54);
 $dot-curve: cubic-bezier(0.455, 0.030, 0.515, 0.955);
-$slider-curve: cubic-bezier(.01, .97, 1, 1.36);
+$slider-curve: cubic-bezier(.01, .97, 1, 1.2);
 
 header {
     animation: show $time-2 $default-curve;
@@ -117,7 +117,7 @@ header {
         >ul {
             >* {
                 opacity: 0;
-                animation: cardAppeareance $time-3 ease-out forwards;
+                animation: cardAppeareance $time-3 $default-curve forwards;
             }
 
             @for $i from 1 through 34 {
@@ -165,7 +165,7 @@ header {
                 opacity: 0;
 
                 &:first-of-type {
-                    animation: textAppeareance $time-2 ease-out forwards;
+                    animation: show $time-2 ease-out forwards;
                     animation-delay: $delay-4;
                 }
             }

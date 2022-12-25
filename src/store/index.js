@@ -14,7 +14,6 @@ const reducer = (state, action) => {
             if (action.payload.name === "none")
                 return {
                     ...state,
-                    searchRequest: "",
                     selectedGenre: action.payload.name,
                     searchRequest: "",
                     gamesList: games,
@@ -57,7 +56,9 @@ const reducer = (state, action) => {
                 ...state,
                 searchRequest: action.payload.searchRequest,
                 gamesList: games.filter((game) =>
-                    game.name.includes(action.payload.searchRequest)
+                    game.name
+                        .toLowerCase()
+                        .includes(action.payload.searchRequest)
                 ),
             };
         default:

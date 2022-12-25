@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 
 const GameColapseInfo = ({ game }) => {
-    const [isColapsed, setIsColapsed] = useState(false);
+    const [isColapsed, setIsColapsed] = useState(true);
     const [colapsedListheight, setcolapsedListHeight] = useState(0);
     const collapsedList = useRef(null);
 

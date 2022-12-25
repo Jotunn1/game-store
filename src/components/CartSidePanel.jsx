@@ -66,14 +66,8 @@ export const CartSidePanel = ({
                 </div>
                 <div className="total">
                     <h5>Total</h5>
-                    <p>$ {total}</p>
+                    <p>$ {total.toFixed(2)}</p>
                 </div>
-                {/* <button
-                    className="button close-panel"
-                    onClick={() => setIsCartPanelActive(false)}
-                >
-                    Close Panel
-                </button> */}
             </div>
         </div>
     );
