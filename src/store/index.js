@@ -56,7 +56,9 @@ const reducer = (state, action) => {
                 ...state,
                 searchRequest: action.payload.searchRequest,
                 gamesList: games.filter((game) =>
-                    game.name.includes(action.payload.searchRequest)
+                    game.name
+                        .toLowerCase()
+                        .includes(action.payload.searchRequest)
                 ),
             };
         default:

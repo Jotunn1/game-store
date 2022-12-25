@@ -1,0 +1,313 @@
+$time-2: calc($base-time * 2); //0.6s
+$time-3: calc($base-time * 3); //0.9s
+$time-4: calc($base-time * 4); //1.2s
+$time-5: calc($base-time * 5); //1.5s
+$time-6: calc($base-time * 6); //1.8s
+
+//delays 
+$delay-1: 0.1s;
+$delay-2: 0.15s;
+$delay-3: 0.2s;
+$delay-4: 0.25s;
+$delay-5: 0.3s;
+$delay-6: 0.35s;
+$delay-7: 0.45s;
+$delay-8: 0.5s;
+
+//curves
+$default-curve: ease-in;
+$buttons-curve: cubic-bezier(.17, .8, 0, 1.54);
+$dot-curve: cubic-bezier(0.455, 0.030, 0.515, 0.955);
+$slider-curve: cubic-bezier(.01, .97, 1, 1.2);
+
+header {
+    animation: show $time-2 $default-curve;
+}
+
+.games,
+.genres-col,
+.main-title,
+.nav-list,
+.tech-page {
+    >span {
+        display: block;
+        overflow: hidden;
+    }
+}
+
+.home-page {
+
+    .main-title,
+    .nav-list,
+    .btns-row {
+        animation: show $time-2 $default-curve;
+    }
+
+    .main-title {
+
+        h1,
+        p {
+            animation: textAppeareance $time-2 $default-curve
+        }
+
+        h1 {
+            animation-delay: $delay-1;
+        }
+
+        p {
+            animation-delay: $delay-2;
+        }
+    }
+
+    .btns-row {
+        >button {
+            opacity: 0;
+            animation: buttonsAppeareance $time-3 $buttons-curve forwards;
+
+            @for $i from 1 through 4 {
+                &:nth-of-type(#{$i}) {
+                    animation-delay: calc(#{$delay-2} * #{$i});
+                }
+            }
+        }
+    }
+
+    .nav-list {
+        span>h2 {
+            animation: textAppeareance $time-2 $default-curve;
+        }
+
+        ul>button {
+            opacity: 0;
+            animation: buttonsAppeareance $time-4 $buttons-curve forwards;
+
+            @for $i from 1 through 8 {
+                &:nth-of-type(#{$i}) {
+                    animation-delay: calc(#{$delay-1} * #{$i});
+                }
+            }
+        }
+    }
+}
+
+.browse-page {
+    .genres-col {
+
+        >span>h3 {
+            animation: textAppeareance $time-2 $default-curve;
+        }
+
+        ul>button {
+            animation: cardAppeareance $time-3 $buttons-curve forwards;
+            opacity: 0;
+
+            @for $i from 1 through 9 {
+                &:nth-of-type(#{$i}) {
+                    animation-delay:calc(#{$delay-2} * #{$i})
+                }
+            }
+        }
+    }
+
+    .games {
+        >span>h2 {
+            animation: textAppeareance $time-2 $default-curve;
+        }
+
+        >ul {
+            >* {
+                opacity: 0;
+                animation: cardAppeareance $time-3 $default-curve forwards;
+            }
+
+            @for $i from 1 through 34 {
+                >:nth-child(#{$i}) {
+                    animation-delay: calc(#{$delay-1} * #{$i});
+                }
+            }
+        }
+
+        .controls-row {
+            button {
+                opacity: 0;
+                animation: buttonsAppeareance $time-6 $buttons-curve forwards;
+
+                @for $i from 1 through 4 {
+                    &:nth-of-type(#{$i}) {
+                        animation-delay:calc(#{$delay-5} * #{$i})
+                    }
+                }
+            }
+        }
+    }
+}
+
+.game-page {
+    .first-row {
+        h1 {
+            animation: textAppeareance $base-time $default-curve;
+        }
+
+        a {
+            opacity: 0;
+            animation: textAppeareance $base-time $default-curve forwards;
+            animation-delay: $delay-6;
+        }
+    }
+
+    .game-content {
+        .swiper {
+            animation: cardAppeareance $time-2 $slider-curve;
+        }
+
+        .game-info {
+            >div {
+                opacity: 0;
+
+                &:first-of-type {
+                    animation: show $time-2 ease-out forwards;
+                    animation-delay: $delay-4;
+                }
+            }
+
+            .game-buttons {
+                animation: buttonsAppeareance $time-2 $default-curve forwards;
+                animation-delay: $delay-5;
+            }
+
+        }
+    }
+}
+
+.error-page>div {
+    animation: cardAppeareance $time-2 ease-out;
+
+    .progress-bar {
+        animation: pb-width 7s linear;
+    }
+}
+
+.tech-page {
+    >span>h1 {
+        animation: textAppeareance $time-2 $default-curve;
+    }
+
+    li {
+        opacity: 0;
+        animation: cardAppeareance $time-4 $buttons-curve forwards;
+
+        @for $i from 1 through 8 {
+            &:nth-of-type(#{$i}) {
+                animation-delay: calc(#{$delay-2} * #{$i});
+            }
+        }
+    }
+}
+
+.preloader.progress.dot {
+    animation: dot-load infinite 4s $dot-curve;
+
+    &:nth-of-type(1) {
+        animation-delay: $delay-5;
+    }
+
+    &:nth-of-type(2) {
+        animation-delay: $delay-2;
+    }
+
+    &:nth-of-type(4) {
+        animation-delay: (-$delay-5);
+    }
+
+    &:nth-of-type(5) {
+        animation-delay: (-$delay-2);
+    }
+}
+
+@keyframes show {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes dot-load {
+    0% {
+        left: -40px;
+        background: #29f29c;
+        opacity: .6
+    }
+
+    50% {
+        left: 50%;
+        background: #1cd9b9;
+        opacity: .9
+    }
+
+    100% {
+        left: 100%;
+        background: #019ffb;
+        opacity: .6
+    }
+}
+
+@keyframes pb-width {
+    0% {
+        width: 0%;
+    }
+
+    100% {
+        width: 100%;
+    }
+}
+
+@keyframes filterBtnsAppeareance {
+    0% {
+        opacity: 0;
+        transform: translateX(400%);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes cardAppeareance {
+    0% {
+        opacity: 0;
+        transform: translateY(40%);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes textAppeareance {
+    0% {
+        opacity: 0;
+        transform: translateY(100%);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes buttonsAppeareance {
+    0% {
+        opacity: 0;
+        transform: scale(0.3);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}

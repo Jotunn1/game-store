@@ -9,7 +9,7 @@ export const NotFoundPage = () => {
     useEffect(() => {
         const navigateTimer = setTimeout(() => {
             navigate("browse");
-        }, 7000);
+        }, 7100);
         return () => clearTimeout(navigateTimer);
     }, []);
 

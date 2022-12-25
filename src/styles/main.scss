@@ -1,4 +1,4 @@
-@import './reset.scss', './--scss.scss', './fonts.scss';
+@import './reset.scss', './--scss.scss', './fonts.scss', './animations.scss';
 
 body {
     margin: 0;
@@ -6,6 +6,10 @@ body {
     background-color: $main-bg-color;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+
+    &.block-scroll {
+        overflow: hidden;
+    }
 }
 
 header {
@@ -97,8 +101,8 @@ header {
     background-color: $main-bg-color;
     min-height: 100vh;
 
-    >h1 {
-        margin: 50px 0 50px;
+    h1 {
+        padding: 50px 0 50px;
         text-align: center;
         font-family: "GT Bold";
         font-size: 80px;
@@ -208,12 +212,12 @@ header {
     }
 
     &.genre-btn {
+        grid-gap: 15px;
+
         >h3 {
             color: $white-color;
             font-family: 'GT Regular';
             font-size: 22px;
-            transition: letter-spacing $base-time cubic-bezier(0, -0.1, .99, -0.7);
-            // TODO fix transition curve for letter
         }
 
         .genre-icon {
@@ -234,10 +238,6 @@ header {
         }
 
         &:hover {
-            >h3 {
-                letter-spacing: 3px;
-            }
-
             .genre-icon {
                 background-color: $white-color;
 
@@ -340,13 +340,13 @@ header {
     .main-title {
         padding: 50px 30px;
 
-        >h1 {
+        h1 {
             font-family: 'GT Bold';
             font-size: 90px;
             margin-bottom: 10px;
         }
 
-        >p {
+        p {
             font-family: 'GT Regular';
             font-size: 20px;
 
@@ -363,14 +363,14 @@ header {
         align-self: flex-end;
         margin-right: 50px;
 
-        >h2 {
+        h2 {
             font-family: "GT Bold";
             font-size: 26px;
-            margin-bottom: 14px;
             text-align: center;
         }
 
         >ul {
+            margin-top: 14px;
             display: flex;
             flex-direction: column;
             gap: 8px;
@@ -421,9 +421,9 @@ header {
     grid-template-columns: 2fr 8fr;
 
     .genres-col {
-        padding: 20px 25px;
+        padding: 30px 40px;
 
-        >h3 {
+        >span>h3 {
             font-family: 'GT Medium';
             font-size: 30px;
             letter-spacing: 2px;
@@ -439,7 +439,7 @@ header {
     }
 
     .games {
-        padding-right: 50px;
+        padding-right: 40px;
 
         >ul.grid {
             display: grid;
@@ -514,19 +514,6 @@ header {
                             }
                         }
                     }
-                }
-            }
-        }
-
-        >ul {
-            >* {
-                opacity: 0;
-                animation: cardAppeareance calc($base-time * 3) ease-in-out forwards;
-            }
-
-            @for $i from 1 through 34 {
-                >:nth-child(#{$i}) {
-                    animation-delay: calc(0.1s * #{$i});
                 }
             }
         }
@@ -734,11 +721,16 @@ header {
                     max-height: 200px;
                     overflow: scroll;
                     overflow-x: hidden;
-                    padding-right: 3px;
+                    max-width: 99%;
 
                     &::-webkit-scrollbar {
                         width: 3px;
-                        display: block;
+                    }
+
+                    &:hover {
+                        &::-webkit-scrollbar {
+                            display: block;
+                        }
                     }
 
                     &::-webkit-scrollbar-track {
@@ -748,7 +740,6 @@ header {
                     &::-webkit-scrollbar-thumb {
                         box-shadow: inset 0 0 5px grey;
                         background: $gray-color-2;
-                        height: 5px;
                     }
                 }
             }
@@ -811,7 +802,7 @@ header {
                 gap: 10px;
                 $transition-props: margin-bottom,
                 height;
-                transition: $transition-props 1s ease-in;
+                transition: $transition-props $time-2 ease-in;
 
                 >a {
                     font-family: "GT Bold";
@@ -834,7 +825,7 @@ header {
                     font-size: 15px;
                     letter-spacing: 1px;
                     line-height: 1.2;
-                    transition: opacity calc($base-time * 2);
+                    transition: opacity $base-time ease-in;
                 }
             }
 
@@ -851,7 +842,7 @@ header {
                     >li {
                         @for $i from 1 through 5 {
                             &:nth-of-type(#{$i}) {
-                                transition-delay: calc(0.15s * #{$i});
+                                transition-delay: calc(#{$delay-2} * #{$i});
                             }
                         }
                     }
@@ -870,13 +861,13 @@ header {
                     }
 
                     >a {
-                        transition-delay: 0.75s;
+                        transition-delay: 0.5s;
                     }
 
                     >li {
                         @for $i from 1 through 5 {
                             &:nth-of-type(#{$i}) {
-                                transition-delay: calc(0.6s / #{$i});
+                                transition-delay: calc(#{$delay-1} / #{$i});
                             }
                         }
                     }
@@ -916,7 +907,7 @@ header {
         border-radius: 30px;
         overflow: hidden;
         padding: 75px;
-        animation: cardAppeareance calc($base-time * 2) ease-out;
+
 
         >img {
             width: 250px;
@@ -946,8 +937,7 @@ header {
             left: 0;
             height: 15px;
             width: 100%;
-            background-color: $green-color;
-            animation: pb-width 7s linear;
+            background: $green-blue-gradient;
         }
     }
 }
@@ -1193,67 +1183,8 @@ header {
             background: #29f29c;
             position: relative;
             left: -40px;
-            animation: dot-load infinite 4s cubic-bezier(0.455, 0.030, 0.515, 0.955);
             border-radius: 50%;
-
-            &:nth-of-type(1) {
-                animation-delay: .3s;
-            }
-
-            &:nth-of-type(2) {
-                animation-delay: .15s;
-            }
-
-            &:nth-of-type(4) {
-                animation-delay: -.15s;
-            }
-
-            &:nth-of-type(5) {
-                animation-delay: -.3s;
-            }
         }
-    }
-
-    @keyframes dot-load {
-        0% {
-            left: -40px;
-            background: #29f29c;
-            opacity: .6
-        }
-
-        50% {
-            left: 50%;
-            background: #1cd9b9;
-            opacity: .9
-        }
-
-        100% {
-            left: 100%;
-            background: #019ffb;
-            opacity: .6
-        }
-    }
-}
-
-@keyframes pb-width {
-    0% {
-        width: 0%;
-    }
-
-    100% {
-        width: 100%;
-    }
-}
-
-@keyframes cardAppeareance {
-    0% {
-        opacity: 0;
-        transform: translateY(20%);
-    }
-
-    100% {
-        opacity: 1;
-        transform: translateY(0);
     }
 }
 

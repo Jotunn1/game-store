@@ -16,7 +16,6 @@ const Games = () => {
                 <FilterControls />
                 <GridControls setGamesLayout={setGamesLayout} />
             </div>
-
             {gamesList.length > 0 ? (
                 <ul className={gamesLayout}>
                     {gamesList.map((game) => (

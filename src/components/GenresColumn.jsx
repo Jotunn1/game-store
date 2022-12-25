@@ -23,7 +23,9 @@ const GenresColumn = () => {
 
     return (
         <div className="genres-col">
-            <h3>Genres</h3>
+            <span>
+                <h3>Genres</h3>
+            </span>
             <ul>
                 {genresList.map((el, index) => (
                     <PrGenreBtn
