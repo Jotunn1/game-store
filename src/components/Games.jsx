@@ -5,7 +5,7 @@ import { GridControls } from "./GridControls";
 import GameCard from "./primitives/GameCard";
 
 const Games = () => {
-    const [gamesLayout, setGamesLayout] = useState("column");
+    const [gamesLayout, setGamesLayout] = useState("grid");
     const gamesList = useSelector((state) => state.gamesList);
     const searchRequest = useSelector((state) => state.searchRequest);
 
