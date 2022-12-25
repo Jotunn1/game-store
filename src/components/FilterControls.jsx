@@ -3,11 +3,17 @@ import { actions } from "../store/actions";
 
 export const FilterControls = () => {
     const selectedGenre = useSelector((state) => state.selectedGenre);
+    const searchRequest = useSelector((state) => state.searchRequest);
     const dispatch = useDispatch();
     return (
         <div className="filter">
             <button>
-                Filter by: <span>{selectedGenre}</span>
+                Filter by:
+                {searchRequest !== "" ? (
+                    <span> Name</span>
+                ) : (
+                    <span> {selectedGenre}</span>
+                )}
             </button>
             <button
                 className="button"

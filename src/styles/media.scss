@@ -25,7 +25,7 @@
         }
 
         .games {
-            &.grid>ul {
+            >ul.grid {
                 grid-template-columns: repeat(3, 1fr);
             }
         }
@@ -123,8 +123,14 @@
                 }
             }
 
-            &.grid>ul {
+            >ul.grid {
                 grid-template-columns: 1fr 1fr;
+            }
+
+            >ul.column {
+                >.game-card>.column {
+                    padding: 10px 20px;
+                }
             }
         }
     }
@@ -266,9 +272,8 @@
                 }
             }
 
-            &.grid>ul {
-                grid-template-columns: 1fr;
-            }
+
+            >ul.columns {}
         }
     }
 

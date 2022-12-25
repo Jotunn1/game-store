@@ -441,17 +441,81 @@ header {
     .games {
         padding-right: 50px;
 
-        &.grid>ul {
+        >ul.grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             gap: 20px;
+
+            >.game-card>.column {
+                display: none;
+            }
         }
 
-        &.column>ul {
+        >ul.column {
             display: flex;
             flex-direction: column;
             align-items: center;
             gap: 20px;
+
+            >.game-card {
+                width: 90%;
+                display: grid;
+                grid-template-columns: 4fr 6fr;
+                flex-direction: row;
+
+                >.image-wrapper {
+                    min-height: 220px;
+
+                    >img {
+                        border-top-left-radius: 12px;
+                        border-bottom-left-radius: 12px;
+                        border-top-right-radius: 0;
+                        object-fit: cover;
+                    }
+                }
+
+                >.grid {
+                    display: none;
+                }
+
+                >.column {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-around;
+                    padding: 20px 40px;
+                    gap: 15px;
+                    // width: 100%;
+
+                    h2,
+                    >.game-price {
+                        margin: 0;
+                    }
+
+                    >.info {
+                        display: grid;
+                        gap: 5px;
+
+                        li {
+                            font-size: 15px;
+                            font-family: "GT Medium";
+                            color: $gray-color-2;
+                            line-height: 18px;
+
+                            >span {
+                                color: rgb(141, 140, 140);
+                            }
+
+                            >.genre {
+                                display: inline-block;
+
+                                &::first-letter {
+                                    text-transform: uppercase;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
         }
 
         >ul {
@@ -482,7 +546,6 @@ header {
                 background-color: $gray-color;
                 border-radius: 10px;
                 color: #fff;
-                cursor: pointer;
                 font-family: 'GT Light';
                 letter-spacing: 1px;
                 font-size: 15px;
@@ -547,6 +610,7 @@ header {
             flex-direction: column;
             background-color: #202020;
             border-radius: 12px;
+            cursor: pointer;
             $transition-props: background-color,
             transform;
             transition: $transition-props $base-time ease-in;
@@ -568,11 +632,6 @@ header {
                 font-size: 24px;
                 font-family: 'GT Bold';
                 margin: 0 15px 50px 15px;
-            }
-
-            >.image-wrapper,
-            h2 {
-                cursor: pointer;
             }
 
             >.image-wrapper {
@@ -1012,7 +1071,7 @@ header {
             p {
                 color: #999;
                 font-family: 'GT Medium';
-                font-size: 13px;
+                font-size: 15px;
             }
         }
 
