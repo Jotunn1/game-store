@@ -11,7 +11,9 @@ const Games = () => {
 
     return (
         <div className="games">
-            <h2>Games</h2>
+            <span>
+                <h2>Games</h2>
+            </span>
             <div className="controls-row">
                 <FilterControls />
                 <GridControls setGamesLayout={setGamesLayout} />

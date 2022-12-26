@@ -252,7 +252,7 @@ header {
         $cart-btn-color: rgb(153, 153, 153);
 
         h4 {
-            font-size: 20px;
+            font-size: 18px;
             color: $cart-btn-color;
             font-family: 'GT Light';
             transition: color $base-time ease-out;
@@ -572,11 +572,24 @@ header {
             }
 
             >.grid {
+
+                >span {
+                    align-self: center;
+
+                    >p {
+                        font-size: 18px;
+                        font-family: "GT Light";
+                        color: $gray-color-2;
+                    }
+
+                }
+
                 >button {
                     padding: 3px;
                     aspect-ratio: 1/1;
                     display: grid;
                     place-items: center;
+                    cursor: pointer;
 
                     >svg {
                         fill: rgb(111, 111, 111);
@@ -826,6 +839,14 @@ header {
                     letter-spacing: 1px;
                     line-height: 1.2;
                     transition: opacity $base-time ease-in;
+
+                    &.genre>span {
+                        display: inline-block;
+
+                        &::first-letter {
+                            text-transform: uppercase;
+                        }
+                    }
                 }
             }
 

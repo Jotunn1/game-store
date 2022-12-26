@@ -138,6 +138,12 @@ header {
                     }
                 }
             }
+
+            p {
+                opacity: 0;
+                animation: textAppeareance $time-6 $buttons-curve forwards;
+                animation-delay: calc(#{$delay-5} * 5);
+            }
         }
     }
 }

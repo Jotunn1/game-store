@@ -9,14 +9,7 @@ const CartButton = () => {
     const cartTotal = useMemo(() => {
         return cart.reduce((acc, el) => acc + Number(el.price), 0);
     }, [cart]);
-    useEffect(() => {
-        if (isCartPanelActive) {
-            const body = document.querySelector("body");
-            if (body.classList.contains("block-scroll"))
-                body.classList.remove("block-scroll");
-            else body.classList.add("block-scroll");
-        }
-    }, [isCartPanelActive]);
+    
 
     return (
         <>

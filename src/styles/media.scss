@@ -21,7 +21,7 @@
 
     .browse-page {
         .genres-col {
-            padding: 10px;
+            padding: 20px;
         }
 
         .games {
@@ -169,7 +169,7 @@
     }
 
     .button.cart-btn h4 {
-        font-size: 20px;
+        font-size: 14px;
     }
 
     .cart-panel {
@@ -288,7 +288,9 @@
             }
 
 
-            >ul.columns {}
+            >ul.grid {
+                grid-template-columns: 1fr;
+            }
         }
     }
 

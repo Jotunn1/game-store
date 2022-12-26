@@ -38,7 +38,9 @@ const GameColapseInfo = ({ game }) => {
                 </a>
                 <li>Released: {game.release}</li>
                 <li>Platforms: {game.platforms}</li>
-                <li className="genre">Main Genre: {game.genre}</li>
+                <li className="genre">
+                    Main Genre: <span> {game.genre}</span>
+                </li>
                 <li>Developer: {game.developers}</li>
                 <li>Publisher: {game.publishers}</li>
             </ul>

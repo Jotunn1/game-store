@@ -4,6 +4,10 @@ import { ReactComponent as ColumnLogo } from "../assets/images/columns.svg";
 export const GridControls = ({ setGamesLayout }) => {
     return (
         <div className="grid">
+            <span>
+                <p>Display options</p>
+            </span>
+
             <button onClick={() => setGamesLayout("grid")}>
                 <GridLogo />
             </button>

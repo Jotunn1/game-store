@@ -12,7 +12,7 @@ export const FilterControls = () => {
                 {searchRequest !== "" ? (
                     <span> Name</span>
                 ) : (
-                    <span> {selectedGenre}</span>
+                    <span>{selectedGenre}</span>
                 )}
             </button>
             <button
