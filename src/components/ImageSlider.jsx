@@ -22,11 +22,7 @@ const ImageSlider = ({ imagesArray }) => {
             {imagesArray.map((image, index) => {
                 return (
                     <SwiperSlide key={index}>
-                        <img
-                            src={image}
-                            alt="slider image"
-                            loading="lazy"
-                        />
+                        <img src={image} alt="slider image" loading="lazy" />
                     </SwiperSlide>
                 );
             })}

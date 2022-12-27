@@ -1,0 +1,146 @@
+@import './--scss.scss';
+.button {
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: $button-gap;
+    align-items: center;
+    background-color: transparent;
+
+    .icon {
+        width: 36px;
+        height: 36px;
+    }
+
+    >h3,
+    h4 {
+        white-space: nowrap;
+
+        &::first-letter {
+            text-transform: uppercase;
+        }
+    }
+
+    &.ghost-btn {
+        transition: transform .3s ease-in;
+
+        &:hover {
+            transform: scale(1.03);
+        }
+
+        >h3 {
+            font-family: 'GT Bold';
+            color: $white-color;
+        }
+    }
+
+    &.btn-cta {
+        $transition-props: background-color,
+        transform;
+        background-color: $white-color;
+        border-radius: 18px;
+        gap: 10px;
+        padding: 12px 28px;
+        transition: $transition-props .3s ease-in;
+        position: relative;
+
+        &:hover {
+            background-color: $cta-color;
+            -webkit-transform: scale(1.03);
+            transform: scale(1.03);
+        }
+
+        >h4 {
+            color: $black-color;
+            font-family: 'GT Medium';
+            font-size: 18px;
+        }
+
+        >.icon {
+            height: 18px;
+            width: 18px;
+        }
+
+        >a {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+    &.genre-btn {
+        grid-gap: 15px;
+
+        >h3 {
+            color: $white-color;
+            font-family: 'GT Regular';
+            font-size: 22px;
+        }
+
+        .genre-icon {
+            width: 40px;
+            display: grid;
+            place-items: center;
+            aspect-ratio: 1/1;
+            background-color: $gray-color;
+            border-radius: 8px;
+            transition: background-color $base-time ease-in;
+
+            >svg {
+                height: 26px;
+                width: 26px;
+                transition: fill $base-time ease;
+                fill: $white-color;
+            }
+        }
+
+        &:hover {
+            .genre-icon {
+                background-color: $white-color;
+
+                >svg {
+                    fill: $black-color;
+                }
+            }
+        }
+    }
+
+    &.cart-btn {
+        h4 {
+            font-size: 18px;
+            color: $cart-btn-color;
+            font-family: 'GT Light';
+            transition: color $base-time ease-out;
+        }
+
+        svg {
+            fill: $cart-btn-color;
+            width: 11px;
+            height: 11px;
+            transition: fill $base-time ease-out;
+        }
+
+        &:hover {
+            h4 {
+                color: $cta-color;
+            }
+
+            svg {
+                fill: $cta-color;
+            }
+        }
+
+        &.added {
+            h4 {
+                color: $succes-color ;
+            }
+
+            svg {
+                fill: $succes-color;
+            }
+        }
+    }
+}

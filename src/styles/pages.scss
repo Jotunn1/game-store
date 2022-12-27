@@ -1,0 +1,713 @@
+@import './--scss.scss';
+
+.home-page {
+    padding: var(--header-height) 50px 0;
+    min-height: 100vh;
+}
+
+.browse-page,
+.game-page,
+.tech-page,
+.error-page {
+    padding: var(--header-height) 50px 20px;
+    min-height: 100vh;
+}
+
+.browse-page,
+.game-page,
+.tech-page,
+.error-page {
+    max-width: 1440px;
+    margin: 0 auto;
+}
+
+.tech-page {
+    h1 {
+        padding: 50px 0 50px;
+        text-align: center;
+        font-family: "GT Bold";
+        font-size: 80px;
+    }
+
+    >ul {
+        --count: 5;
+        $gap: 25px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: $gap;
+
+        >li {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            width: calc((100% - (#{$gap} * (var(--count) - 1))) / var(--count));
+
+            >img {
+                width: 150px;
+                height: 150px;
+            }
+
+            >h4 {
+                text-align: center;
+                font-family: 'GT Ultrabold';
+                font-size: 30px;
+                letter-spacing: 4px;
+            }
+        }
+    }
+}
+
+.home-page {
+    display: flex;
+    justify-content: space-between;
+
+    >div {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        height: calc(100vh - var(--header-height));
+        width: 40vw;
+
+        &:first-of-type {
+            min-width: 650px;
+        }
+    }
+
+    .main-title {
+        padding: 50px 30px;
+
+        h1 {
+            font-family: 'GT Bold';
+            font-size: 90px;
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-family: 'GT Regular';
+            font-size: 20px;
+
+            >span {
+                color: $cta-color;
+                cursor: pointer;
+                font-family: 'GT Medium';
+            }
+        }
+    }
+
+    .nav-list {
+        padding: 20px 40px;
+        align-self: flex-end;
+
+        h2 {
+            font-family: "GT Bold";
+            font-size: 26px;
+            text-align: center;
+            padding-bottom: 3px;
+            letter-spacing: 1.2px;
+        }
+
+        >ul {
+            margin-top: 14px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+
+            >* {
+                min-width: 180px;
+                justify-content: flex-start;
+                gap: 20px;
+            }
+        }
+    }
+
+    .btns-row {
+        margin-top: 20px;
+        padding: 20px 15px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 5px;
+    }
+
+    .blured-bg {
+        position: relative;
+        backdrop-filter: blur(10px);
+        border-radius: 30px;
+
+        &:after {
+            border-radius: 30px;
+            background-color: #fff;
+            content: "";
+            display: block;
+            height: 100%;
+            opacity: .285;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: -1;
+        }
+    }
+}
+
+.browse-page {
+    display: grid;
+    grid-template-columns: 2fr 10fr;
+
+    .genres-col {
+        padding: 40px 20px 0 0;
+
+        >span>h3 {
+            font-family: 'GT Medium';
+            font-size: 30px;
+            letter-spacing: 2px;
+        }
+
+        >ul {
+            margin-top: 24px;
+
+            >:not(:first-child) {
+                margin-top: 12px;
+            }
+        }
+    }
+
+    .games {
+        >ul.grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+
+            >.game-card>.column {
+                display: none;
+            }
+        }
+
+        >ul.column {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+
+            >.game-card {
+                width: 90%;
+                display: grid;
+                grid-template-columns: 4fr 6fr;
+                flex-direction: row;
+
+                >.image-wrapper {
+                    min-height: 220px;
+
+                    >img {
+                        border-top-left-radius: 12px;
+                        border-bottom-left-radius: 12px;
+                        border-top-right-radius: 0;
+                        object-fit: cover;
+                    }
+                }
+
+                >.grid {
+                    display: none;
+                }
+
+                >.column {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-around;
+                    padding: 20px 40px;
+                    gap: 15px;
+
+                    h2,
+                    >.game-price {
+                        margin: 0;
+                    }
+
+                    >.info {
+                        display: grid;
+                        gap: 5px;
+
+                        li {
+                            font-size: 15px;
+                            font-family: "GT Medium";
+                            color: $gray-color-2;
+                            line-height: 18px;
+
+                            >span {
+                                color: $svg-fill-color;
+                            }
+
+                            >.genre {
+                                display: inline-block;
+
+                                &::first-letter {
+                                    text-transform: uppercase;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        h2 {
+            font-size: 50px;
+            font-family: 'GT Bold';
+        }
+
+        .controls-row {
+            padding: 40px 0 30px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            button {
+                background-color: $gray-color;
+                border-radius: 10px;
+                color: $white-color;
+                font-family: 'GT Light';
+                letter-spacing: 1px;
+                font-size: 15px;
+                $transition-props: width,
+                background-color,
+                transform;
+                transition: $transition-props $base-time ease-in;
+
+                &:hover {
+                    background-color: $button-hover-color;
+                }
+
+                &:active {
+                    transform: scale(0.9);
+                }
+            }
+
+            >.filter,
+            .grid {
+                display: flex;
+                gap: 15px;
+            }
+
+            >.filter {
+                button {
+                    padding: 12px 28px;
+
+                    >span {
+                        font-family: 'GT Bold';
+                        display: inline-block;
+
+                        &:first-letter {
+                            text-transform: uppercase;
+                        }
+                    }
+                }
+            }
+
+            >.grid {
+
+                >span {
+                    align-self: center;
+
+                    >p {
+                        font-size: 18px;
+                        font-family: "GT Light";
+                        color: $gray-color-2;
+                    }
+                }
+
+                >button {
+                    padding: 3px;
+                    aspect-ratio: 1/1;
+                    display: grid;
+                    place-items: center;
+                    cursor: pointer;
+
+                    >svg {
+                        fill: $svg-fill-color;
+                        transition: fill $base-time;
+                    }
+
+                    &:hover {
+                        >svg {
+                            fill: $white-color ;
+                        }
+                    }
+                }
+            }
+        }
+
+        .game-card {
+            display: flex;
+            flex-direction: column;
+            background-color: $game-card-color;
+            border-radius: 12px;
+            cursor: pointer;
+            $transition-props: background-color,
+            transform;
+            transition: $transition-props $base-time ease-in;
+
+            .game-price {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                margin: 15px;
+
+                >p {
+                    color: $gray-color-2;
+                    font-family: "GT Light";
+                    font-size: 16px;
+                }
+            }
+
+            h2 {
+                font-size: 24px;
+                font-family: 'GT Bold';
+                margin: 0 15px 50px 15px;
+            }
+
+            >.image-wrapper {
+                position: relative;
+
+                >img {
+                    border-top-left-radius: 12px;
+                    border-top-right-radius: 12px;
+                    max-width: 100%;
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+
+            &:hover {
+                background-color: $button-hover-color;
+                transform: scale(1.015);
+            }
+        }
+
+        .search-placeholder {
+            display: grid;
+            place-items: center;
+            height: 50%;
+
+            h5 {
+                font-family: "GT Bold";
+                font-size: 50px;
+                max-width: 500px;
+                text-align: center;
+
+                span {
+                    color: $gray-color-2;
+                }
+            }
+        }
+
+    }
+
+}
+
+.game-page {
+    .first-row {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+
+        button {
+            gap: 12px;
+
+            >svg {
+                fill: $gray-color-2;
+                width: 13px;
+                height: 13px;
+                transition: fill $base-time ease-in;
+            }
+
+            >h3 {
+                font-family: "GT Light";
+                color: $gray-color-2;
+                transition: color $base-time ease-in;
+            }
+
+            &:hover {
+                transform: scale(1);
+
+                >svg {
+                    fill: $white-color;
+                }
+
+                >h3 {
+                    color: $white-color;
+                }
+            }
+        }
+
+        >h1 {
+            font-family: 'GT Ultrabold';
+            font-size: 60px;
+            letter-spacing: 1.5px
+        }
+    }
+
+    .game-content {
+        display: grid;
+        grid-template-columns: 2fr 5fr;
+        gap: 30px;
+        margin-top: 30px;
+        height: 100%;
+
+        .game-info {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            justify-content: space-between;
+
+            .about {
+                padding: 20px 25px;
+                background-color: $game-btns-color;
+                border-top-left-radius: 16px;
+                border-top-right-radius: 16px;
+
+                >h3 {
+                    font-family: 'GT Ultrabold';
+                    font-size: 26px;
+                    margin-bottom: 20px;
+                }
+
+                >p {
+                    position: relative;
+                    color: $gray-color-2;
+                    font-family: 'GT Regular';
+                    font-size: 16px;
+                    line-height: 1.5;
+                    word-spacing: 2px;
+                    max-height: 200px;
+                    overflow: scroll;
+                    overflow-x: hidden;
+                    max-width: 96%;
+
+                    &::-webkit-scrollbar {
+                        width: 3px;
+                    }
+
+                    &:hover {
+                        &::-webkit-scrollbar {
+                            display: block;
+                        }
+                    }
+
+                    &::-webkit-scrollbar-track {
+                        background: $gray-color;
+                    }
+
+                    &::-webkit-scrollbar-thumb {
+                        box-shadow: inset 0 0 5px grey;
+                        background: $gray-color-2;
+                    }
+                }
+            }
+        }
+
+        .game-buttons {
+            margin-top: 30px;
+            align-items: center;
+            background: $game-btns-color;
+            border-radius: 15px;
+            display: flex;
+            justify-content: space-between;
+            padding: 20px 25px;
+
+            >h6 {
+                font-family: 'GT Light';
+                font-size: 20px;
+            }
+        }
+
+        .collapsed-info {
+            overflow: hidden;
+            padding: 20px 25px;
+            background-color: $cart-item-bg;
+            border-bottom-left-radius: 16px;
+            border-bottom-right-radius: 16px;
+            display: flex;
+            flex-direction: column-reverse;
+
+            .blurred-row {
+                display: flex;
+                justify-content: flex-end;
+                align-items: center;
+
+                >p,
+                img {
+                    cursor: pointer;
+                }
+
+                >p {
+                    font-family: "GT Light";
+                    font-size: 16px;
+                    margin-right: 10px;
+                }
+
+                >img {
+                    width: 20px;
+                    height: 20px;
+                    transition: transform $base-time ease-in;
+
+                    &.rotate {
+                        transform: rotate(180deg);
+                    }
+                }
+            }
+
+            >ul {
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+                $transition-props: margin-bottom,
+                height;
+                transition: $transition-props $time-2 ease-in;
+
+                >a {
+                    font-family: "GT Bold";
+                    $transition-props: color,
+                    opacity;
+                    transition: $transition-props $base-time ;
+
+                    &::first-letter {
+                        text-transform: uppercase;
+                    }
+
+                    &:hover {
+                        color: $cta-color;
+                    }
+                }
+
+                >li {
+                    color: $text-gray;
+                    font-family: 'GT Light';
+                    font-size: 15px;
+                    letter-spacing: 1px;
+                    line-height: 1.2;
+                    transition: opacity $base-time ease-in;
+
+                    &.genre>span {
+                        display: inline-block;
+
+                        &::first-letter {
+                            text-transform: uppercase;
+                        }
+                    }
+                }
+            }
+
+            &.active {
+                >ul {
+                    margin-bottom: 10px;
+                    height: var(--list-height);
+
+                    >li,
+                    a {
+                        opacity: 1;
+                    }
+
+                    >li {
+                        @for $i from 1 through 5 {
+                            &:nth-of-type(#{$i}) {
+                                transition-delay: calc(#{$delay-2} * #{$i});
+                            }
+                        }
+                    }
+                }
+            }
+
+            &.hide {
+                >ul {
+                    pointer-events: none;
+                    margin-bottom: 0;
+                    height: 0;
+
+                    >li,
+                    a {
+                        opacity: 0;
+                    }
+
+                    >a {
+                        transition-delay: 0.5s;
+                    }
+
+                    >li {
+                        @for $i from 1 through 5 {
+                            &:nth-of-type(#{$i}) {
+                                transition-delay: calc(#{$delay-1} / #{$i});
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .swiper {
+        width: 100%;
+        height: max-content;
+
+        img {
+            cursor: grabbing;
+            object-fit: cover;
+            max-width: 100%;
+            border-radius: 20px;
+        }
+    }
+}
+
+.error-page {
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    place-items: center;
+
+    >div {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        max-width: 900px;
+        gap: 75px;
+        background-color: $game-card-color;
+        border-radius: 30px;
+        overflow: hidden;
+        padding: 75px;
+
+
+        >img {
+            width: 250px;
+            aspect-ratio: 1/1;
+        }
+
+        h2 {
+            font-family: 'GT Bold';
+            margin-bottom: 10px;
+            font-size: 34px;
+
+            >span {
+                color: $green-color;
+            }
+        }
+
+        p {
+            color: $gray-color-2;
+            font-family: 'GT Regular';
+            font-size: 22px;
+            line-height: 28px;
+        }
+
+        .progress-bar {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            height: 15px;
+            width: 100%;
+            background: $green-blue-gradient;
+        }
+    }
+}

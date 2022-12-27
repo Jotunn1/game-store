@@ -14,7 +14,10 @@ export const Header = () => {
     const handleNavigation = useCallback(
         (e) => {
             const window = e.currentTarget;
-            if (y > window.scrollY) {
+
+            if (window.scrollY === 0) {
+                scrollDirection.current = "stop";
+            } else if (y > window.scrollY) {
                 scrollDirection.current = "top";
             } else if (y < window.scrollY) {
                 scrollDirection.current = "bottom";
@@ -38,7 +41,7 @@ export const Header = () => {
 
     return (
         <header
-            className={`${isHomePage ? "" : "bg"} scroll-${
+            className={`${isHomePage ? "home" : "bg"} scroll-${
                 scrollDirection.current
             }`}
         >

@@ -1,15 +1,49 @@
 $white-color: #fff;
 $black-color: #000;
-$gray-color: rgb(45, 45, 45);
 $gray-color-2: #ccc;
+$text-gray: #999;
 $cta-color: #45c1bc;
 $green-color: #29f39a;
 $succes-color: #90ee90;
-$button-gap: 6px;
+$button-hover-color: #2d2d2d;
 $main-bg-color: #0f1011;
+$cart-item-bg: #262626;
+$cart-item-delete: #2e2e2e;
+$cart-item-delete-hover: #353535;
+$game-btns-color: #1a1a1a;
+$game-card-color: #202020;
+
+$cart-main-bg: rgba(0, 0, 0, 0.6);
+$cart-panel-bg: rgb(26, 26, 26);
+$cart-btn-color: rgb(153, 153, 153);
+$gray-color: rgb(45, 45, 45);
+$svg-fill-color: rgb(141, 140, 140);
 $green-blue-gradient: linear-gradient(90deg, rgba(41, 242, 156, 1) 0%, rgba(28, 217, 185, 1) 60%, rgba(1, 159, 251, 1) 100%);
-$base-time: .3s;
+
+$button-gap: 6px;
 
 body {
     --header-height: 78px;
 }
+
+$base-time: .3s;
+$time-2: calc($base-time * 2); //0.6s
+$time-3: calc($base-time * 3); //0.9s
+$time-4: calc($base-time * 4); //1.2s
+$time-5: calc($base-time * 5); //1.5s
+$time-6: calc($base-time * 6); //1.8s
+
+//delays 
+$delay-1: 0.1s;
+$delay-2: 0.15s;
+$delay-3: 0.2s;
+$delay-4: 0.25s;
+$delay-5: 0.3s;
+$delay-6: 0.35s;
+
+//curves
+$default-curve: ease-in;
+$buttons-curve: cubic-bezier(.17, .8, 0, 1.54);
+$dot-curve: cubic-bezier(0.455, 0.030, 0.515, 0.955);
+$slider-curve: cubic-bezier(.01, .97, 1, 1.2);
+$header-curve: cubic-bezier(0.8, 0.2, 0.2, 0.8);

@@ -1,0 +1,155 @@
+@import './--scss.scss';
+
+.cart-bg {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background-color: $cart-main-bg;
+    height: calc(100vh + var(--header-height));
+    transition: background-color $base-time;
+
+    .outside-cart {
+        width: 70%;
+        height: 100%;
+    }
+
+    .cart-panel {
+        position: fixed;
+        top: 0;
+        right: 0;
+        height: 100vh;
+        width: 30%;
+        background-color: $cart-panel-bg;
+        transition: transform 0.6s ease-out;
+        z-index: 15;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 25px;
+        overflow-y: scroll;
+
+        .button {
+            &:not(.delete-btn) {
+                color: $gray-color-2;
+                $transition-props: transform,
+                color;
+                transition: $transition-props $base-time ease-out;
+
+                &:hover {
+                    color: $white-color;
+                    transform: scale(1.03);
+                }
+            }
+
+            &.close-panel {
+                justify-content: center;
+                font-family: "GT Bold";
+                font-size: 20px;
+            }
+        }
+
+        .title {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            button {
+                letter-spacing: 1.2px;
+                font-size: 15px;
+                font-family: "GT Light";
+            }
+        }
+
+        h2 {
+            font-family: 'GT Ultrabold';
+            font-size: 28px;
+        }
+
+        ul {
+            margin: 20px 0;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .cart-item {
+            align-items: center;
+            background-color: $cart-item-bg;
+            border-radius: 10px;
+            display: flex;
+            justify-content: space-between;
+            padding: 20px 10px;
+
+            >div {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                width: 100%;
+                margin-right: 10px;
+
+                h6 {
+                    max-width: 140px;
+                    font-family: 'GT Regular';
+                    font-size: 18px;
+                    color: $gray-color-2;
+                    padding: 4px 0 3px;
+                }
+
+                p {
+                    color: $text-gray;
+                    font-family: 'GT Medium';
+                    font-size: 15px;
+                }
+            }
+
+            .delete-btn {
+                width: 25px;
+                height: 25px;
+                background-color: $cart-item-delete;
+                justify-content: center;
+                border-radius: 50%;
+                transition: background-color $base-time;
+
+                >svg {
+                    width: 40%;
+                    height: 40%;
+                    fill: $white-color;
+                }
+
+                &:hover {
+                    background-color: $cart-item-delete-hover;
+                }
+            }
+        }
+
+        .total {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            >* {
+                font-family: "GT Bold";
+                color: $text-gray;
+                font-size: 18px;
+            }
+        }
+    }
+
+    &.active {
+
+        .cart-panel {
+            transform: translateX(0);
+        }
+    }
+
+    &.closed {
+        pointer-events: none;
+        background: transparent;
+
+        .cart-panel {
+            transform: translateX(100%);
+        }
+    }
+}
